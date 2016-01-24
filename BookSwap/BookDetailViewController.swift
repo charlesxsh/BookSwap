@@ -17,16 +17,24 @@ class BookDetailViewController: UIViewController {
     @IBOutlet weak var lblAuthor: UILabel!
     
     @IBOutlet weak var btnBuy: UIButton!
-    @IBOutlet weak var btnSell: UIButton!
+    @IBOutlet weak var btnRent: UIButton!
     @IBOutlet weak var btnSwap: UIButton!
+    @IBOutlet weak var btnPrice: UIButton!
     
     @IBOutlet weak var imgProfie: UIImageView!
     @IBOutlet weak var lblDisplayName: UILabel!
     @IBOutlet weak var lblEmail: UILabel!
     
     var listObject:PFObject?
+    var enableSell:Bool = false
+    var enableRent:Bool = false
+    var enableSwap:Bool = false
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.btnPrice.hidden = true
+        self.btnRent.hidden = true
+        self.btnPrice.hidden = true
+        self.btnSwap.hidden = true
         self.setBookName(self.listObject!["book"]["bookName"] as! String)
         self.setBookAuthor(self.listObject!["book"]["Author"] as! String)
         let imgFile = self.listObject!["book"]["coverImg"] as! PFFile
@@ -41,6 +49,30 @@ class BookDetailViewController: UIViewController {
         }
         self.setEdition(self.listObject!["book"]["edition"] as! Int)
         self.setOwnerInformation(self.listObject!["BelongTo"] as! PFUser)
+        if self.listObject!["sellPrice"] as! Float != -1{
+            enableSell = true
+        }
+        
+        if self.listObject!["rentPrice"] as! Float != -1{
+            enableRent = true
+        }
+        
+        enableSwap = self.listObject!["swap"] as! Bool
+        
+        if enableSell{
+            self.btnBuy.enabled = true
+            self.btnBuy.hidden = false
+        }
+        
+        if enableRent{
+            self.btnRent.enabled = true
+            self.btnRent.hidden = false
+        }
+        
+        if enableSwap{
+            self.btnSwap.enabled = true
+            self.btnSwap.hidden = false
+        }
         // Do any additional setup after loading the view.
         
         
@@ -79,10 +111,21 @@ class BookDetailViewController: UIViewController {
         imgFile.getDataInBackgroundWithBlock { (img, error) -> Void in
             self.imgProfie.image = UIImage(data: img!)!
         }
-
-
     }
     
+    @IBAction func btnBuyClicked(sender:UIButton){
+        self.btnPrice.setTitle("Buy: $\(self.listObject!["sellPrice"] as! Float)", forState: .Normal)
+        self.btnPrice.hidden = false
+        self.btnPrice.enabled = true
+        
+    }
+    
+    @IBAction func btnRentClicked(sender:UIButton){
+        self.btnPrice.setTitle("Rent: $\(self.listObject!["rentPrice"] as! Float)", forState: .Normal)
+        self.btnPrice.hidden = false
+        self.btnPrice.enabled = true
+
+    }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         switch(segue.identifier!){

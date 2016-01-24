@@ -49,7 +49,6 @@
 		56F8BCDE1C5321A000F393CE /* BookDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F8BCDD1C5321A000F393CE /* BookDetailViewController.swift */; };
 		56F8BCE11C5325A900F393CE /* TVCellForSwappingBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F8BCDF1C5325A900F393CE /* TVCellForSwappingBook.swift */; };
 		56F8BCE21C5325A900F393CE /* TVCellForSwappingBook.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56F8BCE01C5325A900F393CE /* TVCellForSwappingBook.xib */; };
-		56F8BCE41C532F2000F393CE /* PersonHopeListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F8BCE31C532F2000F393CE /* PersonHopeListViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -118,7 +117,6 @@
 		56F8BCDD1C5321A000F393CE /* BookDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookDetailViewController.swift; sourceTree = "<group>"; };
 		56F8BCDF1C5325A900F393CE /* TVCellForSwappingBook.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TVCellForSwappingBook.swift; sourceTree = "<group>"; };
 		56F8BCE01C5325A900F393CE /* TVCellForSwappingBook.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TVCellForSwappingBook.xib; sourceTree = "<group>"; };
-		56F8BCE31C532F2000F393CE /* PersonHopeListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonHopeListViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -236,7 +234,6 @@
 			children = (
 				56F8BCD51C53127E00F393CE /* BooksTableViewController.swift */,
 				56F8BCDD1C5321A000F393CE /* BookDetailViewController.swift */,
-				56F8BCE31C532F2000F393CE /* PersonHopeListViewController.swift */,
 				569D898E1C5421AB002F8B39 /* BookUploadViewController.swift */,
 				569D89901C54264D002F8B39 /* SignInViewController.swift */,
 				569D89921C542655002F8B39 /* SignUpViewController.swift */,
@@ -418,7 +415,6 @@
 				5676505E1C54F4DB0007AA7A /* AllRequestTableViewController.swift in Sources */,
 				569D89AF1C543769002F8B39 /* TVCellForMe.swift in Sources */,
 				569D89B21C54499E002F8B39 /* MeTableViewController.swift in Sources */,
-				56F8BCE41C532F2000F393CE /* PersonHopeListViewController.swift in Sources */,
 				569D89911C54264D002F8B39 /* SignInViewController.swift in Sources */,
 				56F8BCE11C5325A900F393CE /* TVCellForSwappingBook.swift in Sources */,
 				567650541C54A75A0007AA7A /* MeRequestTableViewController.swift in Sources */,

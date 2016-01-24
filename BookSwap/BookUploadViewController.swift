@@ -22,8 +22,8 @@ class BookUploadViewController: UIViewController, UIImagePickerControllerDelegat
     var inputNumField: UITextField?
     let imgPickerController = UIImagePickerController()
     
-    var sPrice:Int?
-    var rPrice:Int?
+    var sPrice:Float?
+    var rPrice:Float?
     var isSwap:Bool?
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,12 +46,12 @@ class BookUploadViewController: UIViewController, UIImagePickerControllerDelegat
         // Dispose of any resources that can be recreated.
     }
     
-    func setSellPriceNum(price:Int){
+    func setSellPriceNum(price:Float){
         self.btnSellPrice.setTitle("Sell Price:\(price)", forState: .Normal)
         self.sPrice = price
     }
     
-    func setRentPriceNum(price:Int){
+    func setRentPriceNum(price:Float){
         self.btnRentPrice.setTitle("Rent Price:\(price)", forState: .Normal)
         self.rPrice = price
     }
@@ -102,7 +102,7 @@ class BookUploadViewController: UIViewController, UIImagePickerControllerDelegat
             }
             inputText.addAction(UIAlertAction(title: "Cancel", style: .Default, handler: nil))
             inputText.addAction(UIAlertAction(title: "OK", style: .Default, handler: { (UIAlertAction) -> Void in
-                self.setSellPriceNum(Int(self.inputNumField!.text!)!)
+                self.setSellPriceNum(Float(self.inputNumField!.text!)!)
             }))
             self.presentViewController(inputText, animated: true, completion: nil)
             sender.tag = 2
@@ -130,7 +130,7 @@ class BookUploadViewController: UIViewController, UIImagePickerControllerDelegat
             }
             inputText.addAction(UIAlertAction(title: "Cancel", style: .Default, handler: nil))
             inputText.addAction(UIAlertAction(title: "OK", style: .Default, handler: { (UIAlertAction) -> Void in
-                self.setRentPriceNum(Int(self.inputNumField!.text!)!)
+                self.setRentPriceNum(Float(self.inputNumField!.text!)!)
                 
             }))
             self.presentViewController(inputText, animated: true, completion: nil)
@@ -177,14 +177,8 @@ class BookUploadViewController: UIViewController, UIImagePickerControllerDelegat
         book["coverImg"] = PFFile(data: UIImagePNGRepresentation(afterScareImg)!)
         
         let post = PFObject(className: "Listing")
-        if self.sPrice != -1{
-            post["sellPrice"] = self.sPrice
-        }
-        
-        if self.rPrice != -1{
-            post["rentPrice"] = self.rPrice
-        }
-        
+        post["sellPrice"] = self.sPrice
+        post["rentPrice"] = self.rPrice
         post["swap"] = self.isSwap
         
         post["BelongTo"] = PFUser.currentUser()!

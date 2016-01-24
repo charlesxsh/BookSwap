@@ -46,6 +46,12 @@ class SignInViewController: UIViewController, loginDelegate, UITextFieldDelegate
         destVC.logindelegate = self
     }
     
+    @IBAction func btnSignin(sender:UIButton){
+        PFUser.logInWithUsernameInBackground(txFieldUserName.text!, password: txFieldPassword.text!) { (user, error) -> Void in
+            self.dismissViewControllerAnimated(true, completion: nil)
+        }
+    }
+    
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
