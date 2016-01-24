@@ -29,6 +29,8 @@
 		569D89B61C5452D6002F8B39 /* TVCellForMeEmail.xib in Resources */ = {isa = PBXBuildFile; fileRef = 569D89B41C5452D6002F8B39 /* TVCellForMeEmail.xib */; };
 		569D89B91C545754002F8B39 /* CellForDefaultItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569D89B71C545754002F8B39 /* CellForDefaultItem.swift */; };
 		569D89BA1C545754002F8B39 /* CellForDefaultItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 569D89B81C545754002F8B39 /* CellForDefaultItem.xib */; };
+		569D89BC1C547BF3002F8B39 /* RootTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569D89BB1C547BF3002F8B39 /* RootTabBarViewController.swift */; };
+		569D89BE1C548998002F8B39 /* util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569D89BD1C548998002F8B39 /* util.swift */; };
 		56F8BCA81C53106C00F393CE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F8BCA71C53106C00F393CE /* AppDelegate.swift */; };
 		56F8BCAD1C53106C00F393CE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56F8BCAB1C53106C00F393CE /* Main.storyboard */; };
 		56F8BCAF1C53106C00F393CE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56F8BCAE1C53106C00F393CE /* Assets.xcassets */; };
@@ -84,6 +86,8 @@
 		569D89B41C5452D6002F8B39 /* TVCellForMeEmail.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TVCellForMeEmail.xib; sourceTree = "<group>"; };
 		569D89B71C545754002F8B39 /* CellForDefaultItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellForDefaultItem.swift; sourceTree = "<group>"; };
 		569D89B81C545754002F8B39 /* CellForDefaultItem.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CellForDefaultItem.xib; sourceTree = "<group>"; };
+		569D89BB1C547BF3002F8B39 /* RootTabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootTabBarViewController.swift; sourceTree = "<group>"; };
+		569D89BD1C548998002F8B39 /* util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = util.swift; sourceTree = "<group>"; };
 		56F8BCA41C53106C00F393CE /* BookSwap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BookSwap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		56F8BCA71C53106C00F393CE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		56F8BCAC1C53106C00F393CE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -225,6 +229,8 @@
 				569D89901C54264D002F8B39 /* SignInViewController.swift */,
 				569D89921C542655002F8B39 /* SignUpViewController.swift */,
 				569D89B11C54499E002F8B39 /* MeTableViewController.swift */,
+				569D89BB1C547BF3002F8B39 /* RootTabBarViewController.swift */,
+				569D89BD1C548998002F8B39 /* util.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -384,6 +390,8 @@
 			files = (
 				56F8BCD61C53127E00F393CE /* BooksTableViewController.swift in Sources */,
 				56F8BCA81C53106C00F393CE /* AppDelegate.swift in Sources */,
+				569D89BC1C547BF3002F8B39 /* RootTabBarViewController.swift in Sources */,
+				569D89BE1C548998002F8B39 /* util.swift in Sources */,
 				56F8BCDE1C5321A000F393CE /* BookDetailViewController.swift in Sources */,
 				569D89AF1C543769002F8B39 /* TVCellForMe.swift in Sources */,
 				569D89B21C54499E002F8B39 /* MeTableViewController.swift in Sources */,

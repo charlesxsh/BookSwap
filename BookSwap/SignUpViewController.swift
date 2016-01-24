@@ -7,9 +7,20 @@
 //
 
 import UIKit
+import Parse
+
+protocol loginDelegate{
+    func loginIn(usrname:String, passwd:String)
+}
 
 class SignUpViewController: UIViewController {
 
+    @IBOutlet weak var txfiedUsername: UITextField!
+    @IBOutlet weak var txfiedDisplayName: UITextField!
+    @IBOutlet weak var txfiedPassword: UITextField!
+    
+    var logindelegate:loginDelegate?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -22,14 +33,25 @@ class SignUpViewController: UIViewController {
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func dismissVC(sender: AnyObject) {
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
-    */
-
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        print(segue.identifier)
+    }
+    
+    @IBAction func signUpNewUser(sender: AnyObject) {
+        let user = PFUser()
+        user.username = txfiedUsername.text!
+        user.email = txfiedUsername.text!
+        user.password = txfiedPassword.text!
+        user["DisplayName"] = txfiedDisplayName.text!
+        user.signUpInBackgroundWithBlock { (success, error) -> Void in
+            if success {
+                self.logindelegate?.loginIn(user.username!, passwd: user.password!)
+                self.dismissViewControllerAnimated(true, completion: nil)
+            }
+        }
+    }
 }
