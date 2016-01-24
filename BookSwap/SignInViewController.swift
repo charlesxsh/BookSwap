@@ -9,7 +9,7 @@
 import UIKit
 import Parse
 
-class SignInViewController: UIViewController, loginDelegate {
+class SignInViewController: UIViewController, loginDelegate, UITextFieldDelegate {
 
     
     @IBOutlet weak var txFieldUserName: UITextField!
@@ -46,5 +46,13 @@ class SignInViewController: UIViewController, loginDelegate {
         destVC.logindelegate = self
     }
     
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    @IBAction func hideKeyboard(sender: UIGestureRecognizer){
+        self.view.endEditing(true)
+    }
 
 }

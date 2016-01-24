@@ -7,12 +7,15 @@
 //
 
 import UIKit
+import Parse
 
 class BooksTableViewController: UITableViewController, UISearchResultsUpdating {
     
     var selectedIndex:NSIndexPath?
     var resultSearchController:UISearchController!
 //    var filteredTableData = []()
+    var cellData:[PFObject] = [PFObject]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.registerNib(UINib(nibName: "TVCellForBooks", bundle: nil), forCellReuseIdentifier: "bookcell")
@@ -26,6 +29,18 @@ class BooksTableViewController: UITableViewController, UISearchResultsUpdating {
             
             return controller
         })()
+        
+        let query = PFQuery(className: "Listing")
+        query.includeKey("book")
+        query.includeKey("BelongTo")
+        query.findObjectsInBackgroundWithBlock { (objects, error) -> Void in
+            if let objects = objects{
+                for object in objects{
+                    self.cellData.append(object)
+                }
+            }
+            self.tableView.reloadData()
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -40,7 +55,7 @@ class BooksTableViewController: UITableViewController, UISearchResultsUpdating {
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return cellData.count
     }
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
@@ -54,14 +69,27 @@ class BooksTableViewController: UITableViewController, UISearchResultsUpdating {
 //            
 //            return cell
 //        }
-        cell.setbookNameForCell("Book name")
-        cell.setbookOwnerForCell("Owner name")
+        cell.setbookNameForCell(cellData[indexPath.row]["book"]["bookName"] as! String)
+        cell.setbookOwnerForCell(cellData[indexPath.row]["BelongTo"]["DisplayName"] as! String)
+        let imgFile = cellData[indexPath.row]["book"]["coverImg"] as! PFFile
+        if imgFile.dataAvailable{
+            do{
+                try cell.setBookImageForCell(UIImage(data: imgFile.getData())!)
+            }catch{
+                
+            }
+        }else{
+            imgFile.getDataInBackgroundWithBlock { (img, error) -> Void in
+            cell.setBookImageForCell(UIImage(data: img!)!)
+            }
+        }
         return cell
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "segShowBookDetail"{
-            var des:BookDetailViewController = segue.destinationViewController as! BookDetailViewController
+            let des:BookDetailViewController = segue.destinationViewController as! BookDetailViewController
+            des.setListPFObject(self.cellData[self.selectedIndex!.row])
         }
         
     }

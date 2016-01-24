@@ -11,7 +11,7 @@ import Parse
 
 class MeTableViewController: UITableViewController {
     
-    let Data:[Int:[String]] = [0:["Me","Email"], 1:["Request", "Listing"]]
+    let Data:[Int:[String]] = [0:["Me","Email"], 1:["My Request", "My Listing"], 2:["Log out"]]
     var currentUser:PFUser?
     
     override func viewDidLoad() {
@@ -63,8 +63,27 @@ class MeTableViewController: UITableViewController {
             cell.accessoryType = .DisclosureIndicator
             return cell
         }
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        if indexPath.section == 1{
+            switch(indexPath.row){
+            case 1:
+                self.performSegueWithIdentifier("showlist", sender: self)
+                break
+            case 0:
+                self.performSegueWithIdentifier("showrequest", sender: self)
+                break
+            default:
+                break
+            }
+        }
         
-        
+        if indexPath.section == 2{
+            PFUser.logOutInBackgroundWithBlock({ (error) -> Void in
+                self.tabBarController?.selectedIndex = 0
+            })
+        }
     }
 
 }

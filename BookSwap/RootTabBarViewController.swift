@@ -23,7 +23,6 @@ class RootTabBarViewController: UITabBarController, UITabBarControllerDelegate {
     
     
     func tabBarController(tabBarController: UITabBarController, shouldSelectViewController viewController: UIViewController) -> Bool {
-        print(viewController.title)
         if viewController.title == "Me"{
             if (PFUser.currentUser() == nil){
                 let signInVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("Signin") as! SignInViewController

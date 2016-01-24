@@ -13,16 +13,20 @@ protocol loginDelegate{
     func loginIn(usrname:String, passwd:String)
 }
 
-class SignUpViewController: UIViewController {
+class SignUpViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var txfiedUsername: UITextField!
     @IBOutlet weak var txfiedDisplayName: UITextField!
     @IBOutlet weak var txfiedPassword: UITextField!
     
+    @IBOutlet weak var imgProfie: UIImageView!
     var logindelegate:loginDelegate?
-    
+    let imgPickerController = UIImagePickerController()
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        imgPickerController.delegate = self
+        imgPickerController.editing = false
 
         // Do any additional setup after loading the view.
     }
@@ -47,11 +51,52 @@ class SignUpViewController: UIViewController {
         user.email = txfiedUsername.text!
         user.password = txfiedPassword.text!
         user["DisplayName"] = txfiedDisplayName.text!
+        let img = UIImage.resizeImage(self.imgProfie.image, newWidth: 200)
+        user["Profie"] = PFFile(data: UIImagePNGRepresentation(img))
         user.signUpInBackgroundWithBlock { (success, error) -> Void in
             if success {
                 self.logindelegate?.loginIn(user.username!, passwd: user.password!)
                 self.dismissViewControllerAnimated(true, completion: nil)
             }
         }
+    }
+    
+    @IBAction func hideKeyboard(sender: UIGestureRecognizer){
+        self.view.endEditing(true)
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    @IBAction func takePhoto(sender: UITapGestureRecognizer) {
+        let alert = UIAlertController(title: "Choose from", message: nil, preferredStyle: .ActionSheet)
+        alert.addAction(UIAlertAction(title: "Take Photo", style: .Default, handler: { (UIAlertAction) -> Void in
+            alert.dismissViewControllerAnimated(true, completion:nil)
+            self.imgPickerController.sourceType = .Camera
+            self.presentViewController(self.imgPickerController, animated: true, completion: nil)
+        }))
+        alert.addAction(UIAlertAction(title: "Library", style: .Default, handler: { (UIAlertAction) -> Void in
+            alert.dismissViewControllerAnimated(true, completion: nil)
+            self.imgPickerController.sourceType = .PhotoLibrary
+            self.presentViewController(self.imgPickerController, animated: true, completion: nil)
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: { (UIAlertAction) -> Void in
+            alert.dismissViewControllerAnimated(true, completion: nil)
+            
+        }))
+        self.presentViewController(alert, animated: true, completion: nil)
+    }
+    
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
+        if let img:UIImage? = image{
+            self.imgProfie.contentMode = .ScaleAspectFit
+            self.imgProfie.image = img
+        }
+        picker.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
+        picker.dismissViewControllerAnimated(true, completion: nil)
     }
 }

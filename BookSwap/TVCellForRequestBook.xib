@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="127" id="KGk-i7-Jjw" customClass="TVCellForRequestBook" customModule="BookSwap" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="384" height="127"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="384" height="126.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rJN-bN-oTH">
+                        <rect key="frame" x="8" y="8" width="368" height="80"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="rJN-bN-oTH" secondAttribute="height" multiplier="23:5" id="cea-qy-slN"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="author" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IwS-Gh-dPl">
+                        <rect key="frame" x="8" y="96" width="50" height="22.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="edition" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PaZ-p8-G7h">
+                        <rect key="frame" x="324" y="96" width="52" height="22"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="PaZ-p8-G7h" firstAttribute="top" secondItem="rJN-bN-oTH" secondAttribute="bottom" constant="8" id="2Gs-6F-9TR"/>
+                    <constraint firstItem="rJN-bN-oTH" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="ETP-6B-rVU"/>
+                    <constraint firstItem="rJN-bN-oTH" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="Ne7-Eu-e5p"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="PaZ-p8-G7h" secondAttribute="bottom" id="PMU-Bq-VR5"/>
+                    <constraint firstItem="PaZ-p8-G7h" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="Uic-dj-bSY"/>
+                    <constraint firstItem="IwS-Gh-dPl" firstAttribute="top" secondItem="rJN-bN-oTH" secondAttribute="bottom" constant="8" id="c4d-iu-XQv"/>
+                    <constraint firstItem="rJN-bN-oTH" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="cpX-dR-VNu"/>
+                    <constraint firstItem="IwS-Gh-dPl" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="hId-wg-Noj"/>
+                    <constraint firstItem="IwS-Gh-dPl" firstAttribute="bottom" secondItem="H2p-sc-9uM" secondAttribute="bottomMargin" id="pjx-r7-Yxc"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="lblAuthorName" destination="IwS-Gh-dPl" id="1Os-dc-bts"/>
+                <outlet property="lblBookName" destination="rJN-bN-oTH" id="XcI-n2-wJA"/>
+                <outlet property="lblEdition" destination="PaZ-p8-G7h" id="Jml-CX-TVh"/>
+            </connections>
+            <point key="canvasLocation" x="308" y="252.5"/>
+        </tableViewCell>
+    </objects>
+</document>

@@ -9,7 +9,7 @@
 import UIKit
 import Parse
 
-class BookUploadViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class BookUploadViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate , UITextFieldDelegate{
 
     @IBOutlet weak var ImageViewBook: UIImageView!
     @IBOutlet weak var TFBookName: UITextField!
@@ -35,7 +35,9 @@ class BookUploadViewController: UIViewController, UIImagePickerControllerDelegat
         self.btnSwap.setTitleColor(UIColor.grayColor(), forState: .Normal)
         self.btnRentPrice.setTitleColor(UIColor.grayColor(), forState: .Normal)
         self.btnSellPrice.setTitleColor(UIColor.grayColor(), forState: .Normal)
-
+        self.sPrice = -1
+        self.rPrice = -1
+        self.isSwap = false
         // Do any additional setup after loading the view.
     }
     
@@ -190,7 +192,10 @@ class BookUploadViewController: UIViewController, UIImagePickerControllerDelegat
             if success{
                 post["book"] = book
                 post.saveInBackgroundWithBlock({ (success, error) -> Void in
-                    print("success")
+                    if success{
+                        self.dismissViewControllerAnimated(true, completion: nil)
+                        self.navigationController?.popViewControllerAnimated(true)
+                    }
                 })
             }else{
                 print(error)
@@ -198,5 +203,10 @@ class BookUploadViewController: UIViewController, UIImagePickerControllerDelegat
         }
         
        
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 }
