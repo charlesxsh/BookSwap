@@ -20,7 +20,7 @@ class BooksTableViewController: UITableViewController, UISearchResultsUpdating {
         self.resultSearchController = ({
             let controller = UISearchController(searchResultsController: nil)
             controller.searchResultsUpdater = self
-            controller.dimsBackgroundDuringPresentation = false
+            controller.dimsBackgroundDuringPresentation = true
             controller.searchBar.sizeToFit()
             self.tableView.tableHeaderView = controller.searchBar
             

@@ -22,6 +22,13 @@
 		569D89A71C5432AC002F8B39 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 569D89A61C5432AC002F8B39 /* AudioToolbox.framework */; };
 		569D89AB1C5432EB002F8B39 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 569D89A91C5432EB002F8B39 /* Bolts.framework */; };
 		569D89AC1C5432EB002F8B39 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 569D89AA1C5432EB002F8B39 /* Parse.framework */; };
+		569D89AF1C543769002F8B39 /* TVCellForMe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569D89AD1C543769002F8B39 /* TVCellForMe.swift */; };
+		569D89B01C543769002F8B39 /* TVCellForMe.xib in Resources */ = {isa = PBXBuildFile; fileRef = 569D89AE1C543769002F8B39 /* TVCellForMe.xib */; };
+		569D89B21C54499E002F8B39 /* MeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569D89B11C54499E002F8B39 /* MeTableViewController.swift */; };
+		569D89B51C5452D6002F8B39 /* TVCellForMeEmail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569D89B31C5452D6002F8B39 /* TVCellForMeEmail.swift */; };
+		569D89B61C5452D6002F8B39 /* TVCellForMeEmail.xib in Resources */ = {isa = PBXBuildFile; fileRef = 569D89B41C5452D6002F8B39 /* TVCellForMeEmail.xib */; };
+		569D89B91C545754002F8B39 /* CellForDefaultItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569D89B71C545754002F8B39 /* CellForDefaultItem.swift */; };
+		569D89BA1C545754002F8B39 /* CellForDefaultItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 569D89B81C545754002F8B39 /* CellForDefaultItem.xib */; };
 		56F8BCA81C53106C00F393CE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F8BCA71C53106C00F393CE /* AppDelegate.swift */; };
 		56F8BCAD1C53106C00F393CE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56F8BCAB1C53106C00F393CE /* Main.storyboard */; };
 		56F8BCAF1C53106C00F393CE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56F8BCAE1C53106C00F393CE /* Assets.xcassets */; };
@@ -70,6 +77,13 @@
 		569D89A61C5432AC002F8B39 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		569D89A91C5432EB002F8B39 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = Parse/Bolts.framework; sourceTree = SOURCE_ROOT; };
 		569D89AA1C5432EB002F8B39 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = Parse/Parse.framework; sourceTree = SOURCE_ROOT; };
+		569D89AD1C543769002F8B39 /* TVCellForMe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TVCellForMe.swift; sourceTree = "<group>"; };
+		569D89AE1C543769002F8B39 /* TVCellForMe.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TVCellForMe.xib; sourceTree = "<group>"; };
+		569D89B11C54499E002F8B39 /* MeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeTableViewController.swift; sourceTree = "<group>"; };
+		569D89B31C5452D6002F8B39 /* TVCellForMeEmail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TVCellForMeEmail.swift; sourceTree = "<group>"; };
+		569D89B41C5452D6002F8B39 /* TVCellForMeEmail.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TVCellForMeEmail.xib; sourceTree = "<group>"; };
+		569D89B71C545754002F8B39 /* CellForDefaultItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellForDefaultItem.swift; sourceTree = "<group>"; };
+		569D89B81C545754002F8B39 /* CellForDefaultItem.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CellForDefaultItem.xib; sourceTree = "<group>"; };
 		56F8BCA41C53106C00F393CE /* BookSwap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BookSwap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		56F8BCA71C53106C00F393CE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		56F8BCAC1C53106C00F393CE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -210,6 +224,7 @@
 				569D898E1C5421AB002F8B39 /* BookUploadViewController.swift */,
 				569D89901C54264D002F8B39 /* SignInViewController.swift */,
 				569D89921C542655002F8B39 /* SignUpViewController.swift */,
+				569D89B11C54499E002F8B39 /* MeTableViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -221,6 +236,12 @@
 				56F8BCDA1C5312F400F393CE /* TVCellForBooks.xib */,
 				56F8BCDF1C5325A900F393CE /* TVCellForSwappingBook.swift */,
 				56F8BCE01C5325A900F393CE /* TVCellForSwappingBook.xib */,
+				569D89AD1C543769002F8B39 /* TVCellForMe.swift */,
+				569D89AE1C543769002F8B39 /* TVCellForMe.xib */,
+				569D89B31C5452D6002F8B39 /* TVCellForMeEmail.swift */,
+				569D89B41C5452D6002F8B39 /* TVCellForMeEmail.xib */,
+				569D89B71C545754002F8B39 /* CellForDefaultItem.swift */,
+				569D89B81C545754002F8B39 /* CellForDefaultItem.xib */,
 			);
 			name = UITableViewCells;
 			sourceTree = "<group>";
@@ -330,7 +351,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				56F8BCB21C53106C00F393CE /* LaunchScreen.storyboard in Resources */,
+				569D89B01C543769002F8B39 /* TVCellForMe.xib in Resources */,
+				569D89BA1C545754002F8B39 /* CellForDefaultItem.xib in Resources */,
 				56F8BCAF1C53106C00F393CE /* Assets.xcassets in Resources */,
+				569D89B61C5452D6002F8B39 /* TVCellForMeEmail.xib in Resources */,
 				56F8BCDC1C5312F400F393CE /* TVCellForBooks.xib in Resources */,
 				56F8BCAD1C53106C00F393CE /* Main.storyboard in Resources */,
 				56F8BCE21C5325A900F393CE /* TVCellForSwappingBook.xib in Resources */,
@@ -361,9 +385,13 @@
 				56F8BCD61C53127E00F393CE /* BooksTableViewController.swift in Sources */,
 				56F8BCA81C53106C00F393CE /* AppDelegate.swift in Sources */,
 				56F8BCDE1C5321A000F393CE /* BookDetailViewController.swift in Sources */,
+				569D89AF1C543769002F8B39 /* TVCellForMe.swift in Sources */,
+				569D89B21C54499E002F8B39 /* MeTableViewController.swift in Sources */,
 				56F8BCE41C532F2000F393CE /* PersonHopeListViewController.swift in Sources */,
 				569D89911C54264D002F8B39 /* SignInViewController.swift in Sources */,
 				56F8BCE11C5325A900F393CE /* TVCellForSwappingBook.swift in Sources */,
+				569D89B91C545754002F8B39 /* CellForDefaultItem.swift in Sources */,
+				569D89B51C5452D6002F8B39 /* TVCellForMeEmail.swift in Sources */,
 				569D89931C542655002F8B39 /* SignUpViewController.swift in Sources */,
 				569D898F1C5421AB002F8B39 /* BookUploadViewController.swift in Sources */,
 				56F8BCDB1C5312F400F393CE /* TVCellForBooks.swift in Sources */,
