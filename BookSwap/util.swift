@@ -9,6 +9,12 @@
 import UIKit
 import Parse
 
+class circularImageView:UIImageView{
+    override func layoutSubviews() {
+        self.layer.cornerRadius = self.frame.height/2
+        self.clipsToBounds = true
+    }
+}
 extension PFObject{
 static func createBook(name:String, author:String, edition:Int, coverImg:UIImage, block:PFBooleanResultBlock)->PFObject{
     let book = PFObject(className: "Book")

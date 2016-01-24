@@ -27,10 +27,17 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UIImagePicker
         super.viewDidLoad()
         imgPickerController.delegate = self
         imgPickerController.editing = false
+        
+        
 
         // Do any additional setup after loading the view.
     }
-
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.imgProfie.layer.cornerRadius = self.imgProfie.frame.height/2
+        self.imgProfie.clipsToBounds = true
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -51,8 +58,8 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UIImagePicker
         user.email = txfiedUsername.text!
         user.password = txfiedPassword.text!
         user["DisplayName"] = txfiedDisplayName.text!
-        let img = UIImage.resizeImage(self.imgProfie.image, newWidth: 200)
-        user["Profie"] = PFFile(data: UIImagePNGRepresentation(img))
+        let img = UIImage.resizeImage(self.imgProfie.image!, newWidth: 200)
+        user["profie"] = PFFile(data: UIImagePNGRepresentation(img)!)
         user.signUpInBackgroundWithBlock { (success, error) -> Void in
             if success {
                 self.logindelegate?.loginIn(user.username!, passwd: user.password!)
@@ -90,7 +97,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UIImagePicker
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
         if let img:UIImage? = image{
-            self.imgProfie.contentMode = .ScaleAspectFit
+            self.imgProfie.contentMode = .ScaleToFill
             self.imgProfie.image = img
         }
         picker.dismissViewControllerAnimated(true, completion: nil)

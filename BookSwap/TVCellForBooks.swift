@@ -13,7 +13,7 @@ class TVCellForBooks: UITableViewCell {
     @IBOutlet weak var bookImage: UIImageView!
     @IBOutlet weak var bookName: UILabel!
     @IBOutlet weak var bookOwner: UILabel!
-    
+    @IBOutlet weak var bookEdition: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -26,6 +26,9 @@ class TVCellForBooks: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    func setBookedition(edition:Int){
+        self.bookEdition.text = "Edition:\(edition)th"
+    }
     func setBookImageForCell(img:UIImage){
         self.bookImage.image = img
     }

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 class PersonHopeListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 

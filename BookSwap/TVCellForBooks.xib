@@ -25,7 +25,6 @@
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="book name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lJY-Hz-zZf">
                         <rect key="frame" x="123" y="8" width="300" height="77"/>
-                        <color key="backgroundColor" name="knobColor" catalog="System" colorSpace="catalog"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="lJY-Hz-zZf" secondAttribute="height" multiplier="300:77" id="rvo-0q-JKA"/>
                         </constraints>
@@ -34,19 +33,17 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="edition" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v63-a8-bTJ">
-                        <rect key="frame" x="123" y="93" width="76" height="30"/>
-                        <color key="backgroundColor" name="knobColor" catalog="System" colorSpace="catalog"/>
+                        <rect key="frame" x="123" y="93" width="100" height="30"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="76" id="JQW-N6-cSO"/>
+                            <constraint firstAttribute="width" constant="100" id="JQW-N6-cSO"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="owner" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5RW-oD-R9q">
-                        <rect key="frame" x="207" y="93" width="216" height="30"/>
-                        <color key="backgroundColor" name="knobColor" catalog="System" colorSpace="catalog"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <rect key="frame" x="231" y="93" width="192" height="30"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -68,6 +65,7 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="bookEdition" destination="v63-a8-bTJ" id="xZD-dO-uDU"/>
                 <outlet property="bookImage" destination="bow-jl-QCV" id="ssg-A7-dy3"/>
                 <outlet property="bookName" destination="lJY-Hz-zZf" id="vPZ-7L-sOB"/>
                 <outlet property="bookOwner" destination="5RW-oD-R9q" id="j7v-yn-hI7"/>

@@ -71,6 +71,7 @@ class BooksTableViewController: UITableViewController, UISearchResultsUpdating {
 //        }
         cell.setbookNameForCell(cellData[indexPath.row]["book"]["bookName"] as! String)
         cell.setbookOwnerForCell(cellData[indexPath.row]["BelongTo"]["DisplayName"] as! String)
+        cell.setBookedition(cellData[indexPath.row]["book"]["edition"] as! Int)
         let imgFile = cellData[indexPath.row]["book"]["coverImg"] as! PFFile
         if imgFile.dataAvailable{
             do{

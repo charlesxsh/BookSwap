@@ -51,11 +51,15 @@ class MeTableViewController: UITableViewController {
         switch(Data[indexPath.section]![indexPath.row]){
             case "Me":
                 let cell:TVCellForMe = tableView.dequeueReusableCellWithIdentifier("mecell", forIndexPath: indexPath) as! TVCellForMe
-                
+                let img = self.currentUser!["profie"] as! PFFile
+                img.getDataInBackgroundWithBlock({ (data, error) -> Void in
+                    cell.setProfie(UIImage(data: data!)!)
+                })
                 cell.setDisplayName(self.currentUser!["DisplayName"] as! String)
                 return cell
         case "Email":
             let cell:TVCellForMeEmail = tableView.dequeueReusableCellWithIdentifier("emailcell", forIndexPath: indexPath) as! TVCellForMeEmail
+            cell.setEmail(self.currentUser!["email"] as! String)
             return cell
         default:
             let cell:UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "cell")
@@ -65,6 +69,21 @@ class MeTableViewController: UITableViewController {
         }
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        switch(segue.identifier!){
+        case "showlist":
+            let dest = segue.destinationViewController as! MeListTableViewController
+            dest.currentUser = PFUser.currentUser()!
+            break
+        case "showrequest":
+            let dest = segue.destinationViewController as! MeRequestTableViewController
+            dest.currentUser = PFUser.currentUser()!
+            break
+        default:
+            break
+        }
+        
+    }
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if indexPath.section == 1{
             switch(indexPath.row){

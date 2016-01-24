@@ -12,6 +12,7 @@
 		567650571C54B5A00007AA7A /* TVCellForRequestBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567650551C54B5A00007AA7A /* TVCellForRequestBook.swift */; };
 		567650581C54B5A00007AA7A /* TVCellForRequestBook.xib in Resources */ = {isa = PBXBuildFile; fileRef = 567650561C54B5A00007AA7A /* TVCellForRequestBook.xib */; };
 		5676505A1C54BB650007AA7A /* BookRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567650591C54BB650007AA7A /* BookRequestViewController.swift */; };
+		5676505E1C54F4DB0007AA7A /* AllRequestTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5676505D1C54F4DB0007AA7A /* AllRequestTableViewController.swift */; };
 		569D898F1C5421AB002F8B39 /* BookUploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569D898E1C5421AB002F8B39 /* BookUploadViewController.swift */; };
 		569D89911C54264D002F8B39 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569D89901C54264D002F8B39 /* SignInViewController.swift */; };
 		569D89931C542655002F8B39 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569D89921C542655002F8B39 /* SignUpViewController.swift */; };
@@ -74,6 +75,7 @@
 		567650551C54B5A00007AA7A /* TVCellForRequestBook.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TVCellForRequestBook.swift; sourceTree = "<group>"; };
 		567650561C54B5A00007AA7A /* TVCellForRequestBook.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TVCellForRequestBook.xib; sourceTree = "<group>"; };
 		567650591C54BB650007AA7A /* BookRequestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookRequestViewController.swift; sourceTree = "<group>"; };
+		5676505D1C54F4DB0007AA7A /* AllRequestTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllRequestTableViewController.swift; sourceTree = "<group>"; };
 		569D898E1C5421AB002F8B39 /* BookUploadViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookUploadViewController.swift; sourceTree = "<group>"; };
 		569D89901C54264D002F8B39 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		569D89921C542655002F8B39 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
@@ -244,6 +246,7 @@
 				567650511C54A7430007AA7A /* MeListTableViewController.swift */,
 				567650531C54A75A0007AA7A /* MeRequestTableViewController.swift */,
 				567650591C54BB650007AA7A /* BookRequestViewController.swift */,
+				5676505D1C54F4DB0007AA7A /* AllRequestTableViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -335,6 +338,7 @@
 				TargetAttributes = {
 					56F8BCA31C53106C00F393CE = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = J8TELHFDPB;
 					};
 					56F8BCB71C53106C00F393CE = {
 						CreatedOnToolsVersion = 7.2;
@@ -411,6 +415,7 @@
 				569D89BC1C547BF3002F8B39 /* RootTabBarViewController.swift in Sources */,
 				569D89BE1C548998002F8B39 /* util.swift in Sources */,
 				56F8BCDE1C5321A000F393CE /* BookDetailViewController.swift in Sources */,
+				5676505E1C54F4DB0007AA7A /* AllRequestTableViewController.swift in Sources */,
 				569D89AF1C543769002F8B39 /* TVCellForMe.swift in Sources */,
 				569D89B21C54499E002F8B39 /* MeTableViewController.swift in Sources */,
 				56F8BCE41C532F2000F393CE /* PersonHopeListViewController.swift in Sources */,
@@ -562,6 +567,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Parse",
@@ -570,6 +577,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Charles.BookSwap;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -577,6 +585,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Parse",
@@ -585,6 +595,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Charles.BookSwap;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

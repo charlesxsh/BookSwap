@@ -12,13 +12,13 @@ import Parse
 class MeRequestTableViewController: UITableViewController {
     
     var cellData:[PFObject] = [PFObject]()
-    let currentUser:PFUser = PFUser.currentUser()!
+    var currentUser:PFUser?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.registerNib(UINib(nibName: "TVCellForRequestBook", bundle: nil), forCellReuseIdentifier: "bookcell")
         let query = PFQuery(className: "Request")
-        query.whereKey("BelongTo", equalTo:currentUser)
+        query.whereKey("BelongTo", equalTo:currentUser!)
         query.includeKey("forBook")
         query.findObjectsInBackgroundWithBlock { (objects, error) -> Void in
             if let objects = objects {
@@ -49,7 +49,7 @@ class MeRequestTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("bookcell", forIndexPath: indexPath) as! TVCellForRequestBook
         cell.setBookName(cellData[indexPath.row]["forBook"]["bookName"] as! String)
         cell.setBookEdition(cellData[indexPath.row]["forBook"]["edition"] as! Int)
-        cell.setBookAuthor(cellData[indexPath.row]["forBook"]["Author"] as? String)
+        cell.setBookAuthor(cellData[indexPath.row]["forBook"]["Author"] as! String)
         return cell
     }
 

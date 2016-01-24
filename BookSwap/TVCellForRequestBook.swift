@@ -33,8 +33,8 @@ class TVCellForRequestBook: UITableViewCell {
         self.lblBookName.text = str
     }
     
-    func setBookAuthor(str:String?){
-        self.lblBookName.text = str!
+    func setBookAuthor(str:String){
+        self.lblAuthorName.text = "Author(s):\(str)"
     }
     
     func setBookEdition(edition:Int){
