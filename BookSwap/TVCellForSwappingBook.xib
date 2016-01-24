@@ -18,36 +18,35 @@
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="book name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="loh-Oq-idH">
                         <rect key="frame" x="123" y="8" width="300" height="39"/>
-                        <color key="backgroundColor" name="knobColor" catalog="System" colorSpace="catalog"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="loh-Oq-idH" secondAttribute="height" multiplier="100:13" id="MWv-wH-wTR"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="edition" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TM4-R1-0VU">
                         <rect key="frame" x="123" y="55" width="300" height="30"/>
-                        <color key="backgroundColor" name="knobColor" catalog="System" colorSpace="catalog"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WaR-OJ-iuS">
                         <rect key="frame" x="345" y="93" width="78" height="30"/>
-                        <color key="backgroundColor" name="knobColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" red="0.75294117650000003" green="0.35294117650000001" blue="0.32549019610000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="78" id="FAF-Xa-NnZ"/>
                         </constraints>
-                        <state key="normal" title="swap"/>
+                        <state key="normal" title="swap">
+                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
                         <connections>
                             <action selector="swapEvents:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="71g-z0-sih"/>
                         </connections>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Author" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3zf-cZ-CIZ">
                         <rect key="frame" x="123" y="93" width="214" height="30"/>
-                        <color key="backgroundColor" name="knobColor" catalog="System" colorSpace="catalog"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>

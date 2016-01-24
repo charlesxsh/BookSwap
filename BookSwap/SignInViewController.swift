@@ -18,8 +18,12 @@ class SignInViewController: UIViewController, loginDelegate, UITextFieldDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        let img:UIImage = UIImage(named: "wallpaper")!
+        let imgView:UIImageView = UIImageView(frame: self.view.frame)
+        imgView.contentMode = .ScaleToFill
+        imgView.image = img
+        self.view.addSubview(imgView)
+        self.view.sendSubviewToBack(imgView)
     }
 
     override func didReceiveMemoryWarning() {

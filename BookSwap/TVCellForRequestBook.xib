@@ -21,23 +21,24 @@
                         <constraints>
                             <constraint firstAttribute="width" secondItem="rJN-bN-oTH" secondAttribute="height" multiplier="23:5" id="cea-qy-slN"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="author" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IwS-Gh-dPl">
                         <rect key="frame" x="8" y="96" width="50" height="22.5"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="edition" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PaZ-p8-G7h">
-                        <rect key="frame" x="324" y="96" width="52" height="22"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="edition" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PaZ-p8-G7h">
+                        <rect key="frame" x="319" y="96" width="57" height="22"/>
+                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
+                <color key="backgroundColor" red="0.96470588239999999" green="0.91764705879999997" blue="0.88235294119999996" alpha="1" colorSpace="calibratedRGB"/>
                 <constraints>
                     <constraint firstItem="PaZ-p8-G7h" firstAttribute="top" secondItem="rJN-bN-oTH" secondAttribute="bottom" constant="8" id="2Gs-6F-9TR"/>
                     <constraint firstItem="rJN-bN-oTH" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="ETP-6B-rVU"/>

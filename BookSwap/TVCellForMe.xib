@@ -28,8 +28,7 @@
                         <constraints>
                             <constraint firstAttribute="width" secondItem="tQp-2j-fBA" secondAttribute="height" multiplier="247:46" id="Edi-GV-3t4"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="22"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
