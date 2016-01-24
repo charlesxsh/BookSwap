@@ -1,0 +1,98 @@
+<html lang="en">
+	<head>
+    <meta charset="utf-8">
+	<link href="metro/css/metro.css" rel="stylesheet">
+	<link href="metro/css/metro-schemes.css" rel="stylesheet">
+	<link href="metro/css/metro-icons.css" rel="stylesheet">
+    <link href="css/index.css"  rel="stylesheet">
+    <script src="js/jquery.min.js"></script>
+    <script src="metro/js/metro.js"></script>
+    <script src="js/adapter.js"></script>
+    <script src="js/signup.js"></script>
+  	</head>
+
+	<body>
+		<div class="app-bar fixed-top red">
+			<a href="" class="app-bar-element branding">
+				<img src="image/log.png" style="height: 28px; display: inline-block; margin-right: 10px;"> 
+				 Book Swap
+			</a>
+			<div class="app-bar-element">
+				<div class="input-control text" data-role="input">
+				    <input type="text">
+				    <button class="button"><span class="mif-search"></span></button>
+				</div>
+			</div>
+
+			<ul class="app-bar-menu">
+		        <li><a href="index.html">Posting</a></li>
+		        <li><a href="requests.html">Requests</a></li>
+		    </ul>
+			
+		    <div class="app-bar-element place-right">
+		        <a class="dropdown-toggle fg-white">
+		        	<span class="mif-user"></span> User
+		        </a>
+		        <div class="app-bar-drop-container bg-white fg-dark place-right"
+		                data-role="dropdown" data-no-close="true">
+		            <div class="padding20">
+		                    <h4 class="text-light">Login to service...</h4>
+		                    <div class="input-control text">
+		                        <span class="mif-user prepend-icon"></span>
+		                        <input type="text">
+		                    </div>
+		                    <div class="input-control text">
+		                        <span class="mif-lock prepend-icon"></span>
+		                        <input type="password">
+		                    </div>
+		                    <label class="input-control checkbox small-check">
+		                        <input type="checkbox">
+		                        <span class="check"></span>
+		                        <span class="caption">Remember me</span>
+		                    </label>
+		                    <div>
+		                        <button id='button_signin' class="button">Sign In</button>
+		                        <button id='button_signup' class="button">Sign Up</button>
+		                    </div>
+		            </div>
+		        </div>
+		    </div>
+		</div>
+	  	<div id='page_content_container'>
+	  		<div class='ContentContainer'>
+	  			<div id='sign_up' class='align-center'>
+	  				<div class='UserAvatar margin20'>
+						<img src="" height="256" width="256">
+						<button class="button margin20">Upload Your Avatar</button>
+					</div>
+					<div id='email'>
+						<p> Email</p>
+						<div class="input-control text">
+					    	<input type="text">
+						</div>
+					</div>
+					<div id='display_name'>
+						<p> Display Name</p>
+						<div class="input-control text">
+					    	<input type="text">
+						</div>
+					</div>
+					<div id='password'>
+						<p> Password</p>
+						<div class="input-control password">
+					    	<input type="password">
+						</div>
+					</div>
+					<div id='re_enter_password'>
+						<p> Re Enter Password</p>
+						<div class="input-control password">
+					    	<input type="password">
+						</div>
+					</div>
+					<p class='margin10'>Behold! Please Double Check Your Info!</p>
+					<button id='button_create_account' class="button">Create</button>
+				</div>
+	  		</div>
+	  	</div>
+	</body>
+</html>

@@ -1,0 +1,76 @@
+<html lang="en">
+	<head>
+    <meta charset="utf-8">
+	<link href="metro/css/metro.css" rel="stylesheet">
+	<link href="metro/css/metro-schemes.css" rel="stylesheet">
+	<link href="metro/css/metro-icons.css" rel="stylesheet">
+    <link href="css/index.css"  rel="stylesheet">
+    <script src="js/jquery.min.js"></script>
+    <script src="metro/js/metro.js"></script>
+    <script src="js/adapter.js"></script>
+    <script src="js/requestbook.js"></script>
+  	</head>
+
+	<body>
+		<div class="app-bar fixed-top red">
+			<a href="" class="app-bar-element branding">
+				<img src="image/log.png" style="height: 28px; display: inline-block; margin-right: 10px;"> 
+				 Book Swap
+			</a>
+			<div class="app-bar-element">
+				<div class="input-control text" data-role="input">
+				    <input type="text">
+				    <button class="button"><span class="mif-search"></span></button>
+				</div>
+			</div>
+		    <div class="app-bar-element place-right">
+		        <a class="dropdown-toggle fg-white">
+		        	<img src="" style="height: 28px; display: inline-block; margin-right: 10px;"> Hi, User Name
+		        </a>
+		        <div class="app-bar-drop-container bg-white fg-dark place-right"
+		             	data-role="dropdown" data-no-close="true">
+		            <ul class="v-menu red">
+					    <li id='button_my_account'><a href="#"><span class="mif-user icon"></span> My Account</a></li>
+					    <li id='button_messages'><a href="#"><span class="mif-mail icon"></span> Messages</a></li>
+					    <li id='button_my_posting'><a href="#"><span class="mif-books icon"></span> My Posting</a></li>
+					    <li id='button_my_requests'><a href="#"><span class="mif-list icon"></span> My Requests</a></li>
+					</ul>
+		        </div>
+		    </div>
+		</div>
+	  	<div id='page_content_container'>
+	  		<div class='ContentContainer'>
+	  			<div id='request_book' class='align-center'>
+	  				<h3>Request Book</h3>
+		  			<div>
+	 	 				<p>Book Title</p>
+	  					<div>
+	  						<div class="input-control text">
+						    	<input type="text">
+							</div>
+						</div>
+	  				</div>
+	  				<div>
+	  					<p>Book Edition</p>
+	  					<div>
+	  						<div class="input-control text">
+						    	<input type="text">
+							</div>
+						</div>
+	  				</div>
+	  				<div>
+	  					<p>Book Author</p>
+	  					<div>
+	  						<div class="input-control text">
+						    	<input type="text">
+							</div>
+						</div>
+	  				</div>
+	  				<div>
+						<button class="button large-button">Make Request</button>
+					</div>
+				</div>
+	  		</div>
+	  	</div>
+	</body>
+</html>
