@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4D57FADE1C86A38500664C5F /* BSObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D57FADD1C86A38500664C5F /* BSObject.swift */; };
+		4D57FAE01C86A3BE00664C5F /* BSError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D57FADF1C86A3BE00664C5F /* BSError.swift */; };
+		4D57FAE21C86A3D500664C5F /* BSUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D57FAE11C86A3D500664C5F /* BSUser.swift */; };
+		4D57FAE41C86A41100664C5F /* BSBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D57FAE31C86A41100664C5F /* BSBook.swift */; };
+		4D57FAE61C86A43F00664C5F /* BSGlobal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D57FAE51C86A43F00664C5F /* BSGlobal.swift */; };
 		567650521C54A7430007AA7A /* MeListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567650511C54A7430007AA7A /* MeListTableViewController.swift */; };
 		567650541C54A75A0007AA7A /* MeRequestTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567650531C54A75A0007AA7A /* MeRequestTableViewController.swift */; };
 		567650571C54B5A00007AA7A /* TVCellForRequestBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567650551C54B5A00007AA7A /* TVCellForRequestBook.swift */; };
@@ -26,8 +31,6 @@
 		569D89A31C54329D002F8B39 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 569D89A21C54329D002F8B39 /* CoreGraphics.framework */; };
 		569D89A51C5432A4002F8B39 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 569D89A41C5432A4002F8B39 /* CFNetwork.framework */; };
 		569D89A71C5432AC002F8B39 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 569D89A61C5432AC002F8B39 /* AudioToolbox.framework */; };
-		569D89AB1C5432EB002F8B39 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 569D89A91C5432EB002F8B39 /* Bolts.framework */; };
-		569D89AC1C5432EB002F8B39 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 569D89AA1C5432EB002F8B39 /* Parse.framework */; };
 		569D89AF1C543769002F8B39 /* TVCellForMe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569D89AD1C543769002F8B39 /* TVCellForMe.swift */; };
 		569D89B01C543769002F8B39 /* TVCellForMe.xib in Resources */ = {isa = PBXBuildFile; fileRef = 569D89AE1C543769002F8B39 /* TVCellForMe.xib */; };
 		569D89B21C54499E002F8B39 /* MeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569D89B11C54499E002F8B39 /* MeTableViewController.swift */; };
@@ -69,6 +72,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4D57FADD1C86A38500664C5F /* BSObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BSObject.swift; sourceTree = "<group>"; };
+		4D57FADF1C86A3BE00664C5F /* BSError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BSError.swift; sourceTree = "<group>"; };
+		4D57FAE11C86A3D500664C5F /* BSUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BSUser.swift; sourceTree = "<group>"; };
+		4D57FAE31C86A41100664C5F /* BSBook.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BSBook.swift; sourceTree = "<group>"; };
+		4D57FAE51C86A43F00664C5F /* BSGlobal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BSGlobal.swift; sourceTree = "<group>"; };
 		567650511C54A7430007AA7A /* MeListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeListTableViewController.swift; sourceTree = "<group>"; };
 		567650531C54A75A0007AA7A /* MeRequestTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeRequestTableViewController.swift; sourceTree = "<group>"; };
 		567650551C54B5A00007AA7A /* TVCellForRequestBook.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TVCellForRequestBook.swift; sourceTree = "<group>"; };
@@ -132,9 +140,7 @@
 				569D899D1C543280002F8B39 /* Security.framework in Frameworks */,
 				569D899B1C543279002F8B39 /* StoreKit.framework in Frameworks */,
 				569D89991C543273002F8B39 /* SystemConfiguration.framework in Frameworks */,
-				569D89AB1C5432EB002F8B39 /* Bolts.framework in Frameworks */,
 				569D89971C54326A002F8B39 /* libz.tbd in Frameworks */,
-				569D89AC1C5432EB002F8B39 /* Parse.framework in Frameworks */,
 				569D89951C543264002F8B39 /* libsqlite3.0.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -156,6 +162,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4D57FADC1C86A36200664C5F /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				4D57FADD1C86A38500664C5F /* BSObject.swift */,
+				4D57FADF1C86A3BE00664C5F /* BSError.swift */,
+				4D57FAE11C86A3D500664C5F /* BSUser.swift */,
+				4D57FAE31C86A41100664C5F /* BSBook.swift */,
+				4D57FAE51C86A43F00664C5F /* BSGlobal.swift */,
+			);
+			name = Database;
+			sourceTree = "<group>";
+		};
 		569D89A81C5432B8002F8B39 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -199,6 +217,7 @@
 		56F8BCA61C53106C00F393CE /* BookSwap */ = {
 			isa = PBXGroup;
 			children = (
+				4D57FADC1C86A36200664C5F /* Database */,
 				569D89A81C5432B8002F8B39 /* Frameworks */,
 				56F8BCD81C53128D00F393CE /* UITableViewCells */,
 				56F8BCD71C53128300F393CE /* ViewControllers */,
@@ -412,17 +431,22 @@
 				569D89BC1C547BF3002F8B39 /* RootTabBarViewController.swift in Sources */,
 				569D89BE1C548998002F8B39 /* util.swift in Sources */,
 				56F8BCDE1C5321A000F393CE /* BookDetailViewController.swift in Sources */,
+				4D57FAE61C86A43F00664C5F /* BSGlobal.swift in Sources */,
 				5676505E1C54F4DB0007AA7A /* AllRequestTableViewController.swift in Sources */,
 				569D89AF1C543769002F8B39 /* TVCellForMe.swift in Sources */,
+				4D57FAE01C86A3BE00664C5F /* BSError.swift in Sources */,
 				569D89B21C54499E002F8B39 /* MeTableViewController.swift in Sources */,
 				569D89911C54264D002F8B39 /* SignInViewController.swift in Sources */,
 				56F8BCE11C5325A900F393CE /* TVCellForSwappingBook.swift in Sources */,
+				4D57FAE21C86A3D500664C5F /* BSUser.swift in Sources */,
 				567650541C54A75A0007AA7A /* MeRequestTableViewController.swift in Sources */,
 				569D89B91C545754002F8B39 /* CellForDefaultItem.swift in Sources */,
 				569D89B51C5452D6002F8B39 /* TVCellForMeEmail.swift in Sources */,
 				569D89931C542655002F8B39 /* SignUpViewController.swift in Sources */,
+				4D57FAE41C86A41100664C5F /* BSBook.swift in Sources */,
 				569D898F1C5421AB002F8B39 /* BookUploadViewController.swift in Sources */,
 				56F8BCDB1C5312F400F393CE /* TVCellForBooks.swift in Sources */,
+				4D57FADE1C86A38500664C5F /* BSObject.swift in Sources */,
 				567650521C54A7430007AA7A /* MeListTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
