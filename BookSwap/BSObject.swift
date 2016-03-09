@@ -14,6 +14,15 @@ class BSObject {
     
     internal var objectId:String?
     
+    subscript(key: String) -> AnyObject {
+        get {
+            return self.params[key]!
+        }
+        set(Value) {
+            self.params[key] = Value
+        }
+    }
+    
     internal init() {
         params = [String:String](minimumCapacity: 3)
     }
@@ -36,6 +45,8 @@ class BSObject {
         return data
     }
     
+    
+    
     //save object to given url using json
     internal func save(url:String!,completionHandler: (NSData?, NSURLResponse?, NSError?) -> Void) {
         let url = NSURL(string: url)
@@ -46,5 +57,6 @@ class BSObject {
         let task = NSURLSession.sharedSession().dataTaskWithRequest(request, completionHandler: completionHandler)
         task.resume()
     }
+    
 }
 

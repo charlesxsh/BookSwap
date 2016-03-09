@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="QEJ-3n-E5f">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="QEJ-3n-E5f">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -71,7 +71,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="Epj-ZD-z9E">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <sections/>
                         <connections>
                             <outlet property="dataSource" destination="Eek-f4-Plp" id="1rn-lj-70Q"/>
@@ -230,8 +230,7 @@
                                         <exclude reference="gZw-cE-hox"/>
                                     </mask>
                                 </variation>
-                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="20" y="84" width="145" height="175"/>
+                                <variation key="heightClass=regular-widthClass=compact">
                                     <mask key="constraints">
                                         <include reference="agx-fh-NTY"/>
                                         <include reference="gZw-cE-hox"/>
@@ -244,15 +243,14 @@
                                     <constraint firstAttribute="width" secondItem="uu7-dF-jw4" secondAttribute="height" multiplier="201:122" id="8BN-hY-j7z"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="8BN-hY-j7z"/>
                                     </mask>
                                 </variation>
-                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="173" y="84" width="207" height="125.5"/>
+                                <variation key="heightClass=regular-widthClass=compact">
                                     <mask key="constraints">
                                         <include reference="8BN-hY-j7z"/>
                                     </mask>
@@ -261,11 +259,8 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Edition" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JUe-oS-o5M">
                                 <rect key="frame" x="182" y="88" width="410" height="54"/>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
-                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="173" y="227.5" width="207" height="31.5"/>
-                                </variation>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WwD-wd-M7E">
                                 <rect key="frame" x="20" y="490" width="71" height="30"/>
@@ -354,7 +349,7 @@
                                     <constraint firstAttribute="height" constant="60" id="h59-eo-bdx"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="15"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -392,7 +387,7 @@
                                             <constraint firstAttribute="height" constant="34" id="KXR-Bq-apV"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                         <variation key="default">
                                             <mask key="constraints">
@@ -408,7 +403,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d1B-bB-X79">
                                         <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                         <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -768,19 +763,19 @@
                                 <exclude reference="Szf-vx-aOH"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="0KC-Ud-JMD"/>
-                                <exclude reference="hfF-FI-Upg"/>
-                                <exclude reference="zrH-Uv-VGz"/>
-                                <exclude reference="2Mf-be-Fgh"/>
-                                <exclude reference="EtW-t3-y4q"/>
-                                <exclude reference="mF2-0O-os7"/>
+                                <exclude reference="1ER-4o-iNF"/>
                                 <exclude reference="C4F-gL-7T4"/>
                                 <exclude reference="Mez-Qe-1UA"/>
                                 <exclude reference="i8T-Td-bH7"/>
+                                <exclude reference="2Mf-be-Fgh"/>
+                                <exclude reference="EtW-t3-y4q"/>
+                                <exclude reference="mF2-0O-os7"/>
+                                <exclude reference="0KC-Ud-JMD"/>
+                                <exclude reference="hfF-FI-Upg"/>
+                                <exclude reference="zrH-Uv-VGz"/>
                                 <exclude reference="GvE-22-KG7"/>
                                 <exclude reference="YQr-RK-kbu"/>
                                 <exclude reference="r2L-pc-lhi"/>
-                                <exclude reference="1ER-4o-iNF"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -791,19 +786,19 @@
                                 <include reference="Szf-vx-aOH"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="0KC-Ud-JMD"/>
-                                <include reference="hfF-FI-Upg"/>
-                                <include reference="zrH-Uv-VGz"/>
-                                <include reference="2Mf-be-Fgh"/>
-                                <include reference="EtW-t3-y4q"/>
-                                <include reference="mF2-0O-os7"/>
+                                <include reference="1ER-4o-iNF"/>
                                 <include reference="C4F-gL-7T4"/>
                                 <include reference="Mez-Qe-1UA"/>
                                 <include reference="i8T-Td-bH7"/>
+                                <include reference="2Mf-be-Fgh"/>
+                                <include reference="EtW-t3-y4q"/>
+                                <include reference="mF2-0O-os7"/>
+                                <include reference="0KC-Ud-JMD"/>
+                                <include reference="hfF-FI-Upg"/>
+                                <include reference="zrH-Uv-VGz"/>
                                 <include reference="GvE-22-KG7"/>
                                 <include reference="YQr-RK-kbu"/>
                                 <include reference="r2L-pc-lhi"/>
-                                <include reference="1ER-4o-iNF"/>
                             </mask>
                         </variation>
                         <connections>
@@ -1145,6 +1140,9 @@
                                 <exclude reference="AJv-ES-n93"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="B6T-zW-Cd8"/>
+                                <exclude reference="UPU-Aw-Fde"/>
+                                <exclude reference="VLM-Gm-y8A"/>
                                 <exclude reference="TKr-13-zul"/>
                                 <exclude reference="cON-5W-jGf"/>
                                 <exclude reference="clJ-bz-ouf"/>
@@ -1162,9 +1160,6 @@
                                 <exclude reference="S4y-Lz-c01"/>
                                 <exclude reference="rDT-E8-1yz"/>
                                 <exclude reference="vgZ-Gz-Hgj"/>
-                                <exclude reference="B6T-zW-Cd8"/>
-                                <exclude reference="UPU-Aw-Fde"/>
-                                <exclude reference="VLM-Gm-y8A"/>
                                 <exclude reference="jaU-5G-ISd"/>
                             </mask>
                         </variation>
@@ -1174,6 +1169,9 @@
                                 <include reference="AJv-ES-n93"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="B6T-zW-Cd8"/>
+                                <include reference="UPU-Aw-Fde"/>
+                                <include reference="VLM-Gm-y8A"/>
                                 <include reference="TKr-13-zul"/>
                                 <include reference="cON-5W-jGf"/>
                                 <include reference="clJ-bz-ouf"/>
@@ -1191,9 +1189,6 @@
                                 <include reference="S4y-Lz-c01"/>
                                 <include reference="rDT-E8-1yz"/>
                                 <include reference="vgZ-Gz-Hgj"/>
-                                <include reference="B6T-zW-Cd8"/>
-                                <include reference="UPU-Aw-Fde"/>
-                                <include reference="VLM-Gm-y8A"/>
                                 <include reference="jaU-5G-ISd"/>
                             </mask>
                         </variation>
@@ -1482,7 +1477,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="5175" y="-19.5"/>
+            <point key="canvasLocation" x="5122.5" y="-6"/>
         </scene>
         <!--Books-->
         <scene sceneID="rrk-vw-sJK">

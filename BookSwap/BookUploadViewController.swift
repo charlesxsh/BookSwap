@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Parse
 
 class BookUploadViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate , UITextFieldDelegate{
 

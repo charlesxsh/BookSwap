@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import Parse
+
 class RootTabBarViewController: UITabBarController, UITabBarControllerDelegate {
 
     override func viewDidLoad() {
@@ -24,7 +24,7 @@ class RootTabBarViewController: UITabBarController, UITabBarControllerDelegate {
     
     func tabBarController(tabBarController: UITabBarController, shouldSelectViewController viewController: UIViewController) -> Bool {
         if viewController.title == "Me"{
-            if (PFUser.currentUser() == nil){
+            if (!BSGlobal.isLogin()){
                 let signInVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("Signin") as! SignInViewController
                 self.presentViewController(signInVC, animated: true, completion: nil)
                 return false

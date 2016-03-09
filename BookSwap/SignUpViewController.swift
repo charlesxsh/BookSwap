@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Parse
 
 protocol loginDelegate{
     func loginIn(usrname:String, passwd:String)

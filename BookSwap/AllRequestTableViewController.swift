@@ -7,24 +7,21 @@
 //
 
 import UIKit
-import Parse
 
 class AllRequestTableViewController: UITableViewController {
     
-    var cellData:[PFObject] = [PFObject]()
+    var cellData:[BSDictRef] = [BSDictRef]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.registerNib(UINib(nibName: "TVCellForRequestBook", bundle: nil), forCellReuseIdentifier: "bookcell")
-        let query = PFQuery(className: "Request")
-        query.includeKey("forBook")
-        query.findObjectsInBackgroundWithBlock { (objects, error) -> Void in
-            if let objects = objects {
-                for object in objects {
-                    self.cellData.append(object)
-                }
+
+        BSReqlist.search("") { (error, dicts) -> Void in
+            guard let dicts = dicts else {return}
+            
+            for dict in dicts{
+                self.cellData.append(dict)
             }
-            self.tableView.reloadData()
         }
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight = 50
@@ -54,9 +51,9 @@ class AllRequestTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("bookcell", forIndexPath: indexPath) as! TVCellForRequestBook
-        cell.setBookName(cellData[indexPath.row]["forBook"]["bookName"] as! String)
-        cell.setBookEdition(cellData[indexPath.row]["forBook"]["edition"] as! Int)
-        cell.setBookAuthor(cellData[indexPath.row]["forBook"]["Author"] as! String)
+        cell.setBookName(cellData[indexPath.row]["bookname"] as! String)
+        cell.setBookEdition(cellData[indexPath.row]["edition"]as! Int)
+        cell.setBookAuthor(cellData[indexPath.row]["authorname"] as! String)
         return cell
     }
 

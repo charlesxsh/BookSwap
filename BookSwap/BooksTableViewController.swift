@@ -7,14 +7,13 @@
 //
 
 import UIKit
-import Parse
 
 class BooksTableViewController: UITableViewController, UISearchResultsUpdating {
     
     var selectedIndex:NSIndexPath?
     var resultSearchController:UISearchController!
 //    var filteredTableData = []()
-    var cellData:[PFObject] = [PFObject]()
+    var cellData:[BSOnlist] = [BSOnlist]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,17 +29,17 @@ class BooksTableViewController: UITableViewController, UISearchResultsUpdating {
             return controller
         })()
         
-        let query = PFQuery(className: "Listing")
-        query.includeKey("book")
-        query.includeKey("BelongTo")
-        query.findObjectsInBackgroundWithBlock { (objects, error) -> Void in
-            if let objects = objects{
-                for object in objects{
-                    self.cellData.append(object)
-                }
-            }
-            self.tableView.reloadData()
-        }
+//        let query = PFQuery(className: "Listing")
+//        query.includeKey("book")
+//        query.includeKey("BelongTo")
+//        query.findObjectsInBackgroundWithBlock { (objects, error) -> Void in
+//            if let objects = objects{
+//                for object in objects{
+//                    self.cellData.append(object)
+//                }
+//            }
+//            self.tableView.reloadData()
+//        }
     }
 
     override func didReceiveMemoryWarning() {

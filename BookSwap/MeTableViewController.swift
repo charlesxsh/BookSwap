@@ -7,18 +7,17 @@
 //
 
 import UIKit
-import Parse
 
 class MeTableViewController: UITableViewController {
     
     let Data:[Int:[String]] = [0:["Me","Email"], 1:["My Request", "My Listing"], 2:["Log out"]]
-    var currentUser:PFUser?
+    var currentUser:BSUser?
     
     override func viewDidLoad() {
         super.viewDidLoad()
                 self.tableView.registerNib(UINib(nibName: "TVCellForMe", bundle: nil), forCellReuseIdentifier: "mecell")
         self.tableView.registerNib(UINib(nibName: "TVCellForMeEmail", bundle: nil), forCellReuseIdentifier: "emailcell")
-        currentUser = PFUser.currentUser()!
+        currentUser = BSGlobal.currentUser
         //self.tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 50
 
@@ -51,10 +50,11 @@ class MeTableViewController: UITableViewController {
         switch(Data[indexPath.section]![indexPath.row]){
             case "Me":
                 let cell:TVCellForMe = tableView.dequeueReusableCellWithIdentifier("mecell", forIndexPath: indexPath) as! TVCellForMe
-                let img = self.currentUser!["profie"] as! PFFile
-                img.getDataInBackgroundWithBlock({ (data, error) -> Void in
-                    cell.setProfie(UIImage(data: data!)!)
-                })
+//                let img = self.currentUser!["profie"] as! PFFile
+//                img.getDataInBackgroundWithBlock({ (data, error) -> Void in
+//                    cell.setProfie(UIImage(data: data!)!)
+//                })
+                cell.setProfie(self.currentUser)
                 cell.setDisplayName(self.currentUser!["DisplayName"] as! String)
                 return cell
         case "Email":
