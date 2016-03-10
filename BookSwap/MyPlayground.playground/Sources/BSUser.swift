@@ -11,31 +11,31 @@ import UIKit
 class BSUser: BSObject {
     
     var email:String? {
-        get {return super.params["email"] as? String}
-        set(newStr) {super.params["email"] = newStr}
+        get {return super.params["Email"] as? String}
+        set(newStr) {super.params["Email"] = newStr}
     }
     
     var password:String? {
-        get {return super.params["password"] as? String}
-        set(newStr) {super.params["password"] = newStr}
+        get {return super.params["Password"] as? String}
+        set(newStr) {super.params["Password"] = newStr}
     }
     
     var displayName:String? {
-        get {return super.params["displayname"] as? String }
-        set(newStr) {super.params["displayname"] = newStr}
+        get {return super.params["Displayname"] as? String }
+        set(newStr) {super.params["Displayname"] = newStr}
     }
     
     var profie:UIImage? {
-        get{ return UIImage(data:super.params["profie"] as! NSData) }
-        set(img) {super.params["profie"] = UIImagePNGRepresentation(img!)}
+        get{ return UIImage(data:super.params["Profie"] as! NSData) }
+        set(img) {super.params["Profie"] = UIImagePNGRepresentation(img!)}
     }
     
     init(Email _email:String!,Password _password:String!,Displayname _displayname:String!, Profie _profie:UIImage?) {
         super.init(ParameterCapacity: 3)
-        super.params["email"] = _email
-        super.params["password"] = _password
-        super.params["displayname"] = _displayname
-        super.params["profie"] = _profie
+        super.params["Email"] = _email
+        super.params["Password"] = _password
+        super.params["DisplayName"] = _displayname
+        super.params["Profie"] = _profie
     }
     /**
      * var userSchema = new Schema({

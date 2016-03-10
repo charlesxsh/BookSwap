@@ -85,6 +85,7 @@
 		4D60AC7E1C8FDE4000D7C560 /* BSType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BSType.swift; sourceTree = "<group>"; };
 		4D60AC801C8FDE8600D7C560 /* BSResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BSResult.swift; sourceTree = "<group>"; };
 		4D60AC821C8FDEE100D7C560 /* BSUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BSUtil.swift; sourceTree = "<group>"; };
+		4D60AC841C920FF000D7C560 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; };
 		567650511C54A7430007AA7A /* MeListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeListTableViewController.swift; sourceTree = "<group>"; };
 		567650531C54A75A0007AA7A /* MeRequestTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeRequestTableViewController.swift; sourceTree = "<group>"; };
 		567650551C54B5A00007AA7A /* TVCellForRequestBook.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TVCellForRequestBook.swift; sourceTree = "<group>"; };
@@ -238,6 +239,7 @@
 				56F8BCAE1C53106C00F393CE /* Assets.xcassets */,
 				56F8BCB01C53106C00F393CE /* LaunchScreen.storyboard */,
 				56F8BCB31C53106C00F393CE /* Info.plist */,
+				4D60AC841C920FF000D7C560 /* MyPlayground.playground */,
 			);
 			path = BookSwap;
 			sourceTree = "<group>";

@@ -24,7 +24,7 @@ class BookDetailViewController: UIViewController {
     @IBOutlet weak var lblDisplayName: UILabel!
     @IBOutlet weak var lblEmail: UILabel!
     
-    var listObject:PFObject?
+    var listObject:BSDictRef?
     var enableSell:Bool = false
     var enableRent:Bool = false
     var enableSwap:Bool = false
@@ -34,20 +34,12 @@ class BookDetailViewController: UIViewController {
         self.btnRent.hidden = true
         self.btnPrice.hidden = true
         self.btnSwap.hidden = true
-        self.setBookName(self.listObject!["book"]["bookName"] as! String)
-        self.setBookAuthor(self.listObject!["book"]["Author"] as! String)
-        let imgFile = self.listObject!["book"]["coverImg"] as! PFFile
-        if imgFile.dataAvailable{
-            do{
-                try self.setBookImg(UIImage(data: imgFile.getData())!)
-            }catch{}
-        }else{
-            imgFile.getDataInBackgroundWithBlock { (img, error) -> Void in
-                self.setBookImg(UIImage(data: img!)!)
-            }
-        }
-        self.setEdition(self.listObject!["book"]["edition"] as! Int)
-        self.setOwnerInformation(self.listObject!["BelongTo"] as! PFUser)
+        self.setBookName(self.listObject!["BookName"] as! String)
+        self.setBookAuthor(self.listObject!["Author"] as! String)
+        let imgFile = self.listObject!["coverImg"] as! NSData
+        self.setBookImg(UIImage(data: imgFile)!)
+        self.setEdition(self.listObject!["Edition"] as! Int)
+        self.setOwnerInformation(BSUser(jsondata: (self.listObject!["BelongTo"] as! BSDictRef)))
         if self.listObject!["sellPrice"] as! Float != -1{
             enableSell = true
         }
@@ -82,7 +74,7 @@ class BookDetailViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func setListPFObject(obj:PFObject){
+    func setListPFObject(obj:BSDictRef){
         self.listObject = obj
         
     }
@@ -103,7 +95,7 @@ class BookDetailViewController: UIViewController {
         self.lblEdition.text = "Edition:\(edition)th"
     }
     
-    func setOwnerInformation(user:PFUser){
+    func setOwnerInformation(user:BSDictRef){
         self.lblEmail.text = user["email"] as? String
         self.lblDisplayName.text = user["DisplayName"] as? String
         let imgFile = user["profie"] as! PFFile

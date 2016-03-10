@@ -10,23 +10,21 @@ import UIKit
 
 class MeRequestTableViewController: UITableViewController {
     
-    var cellData:[PFObject] = [PFObject]()
-    var currentUser:PFUser?
+    var cellData:[BSDictRef] = [BSDictRef]()
+    var currentUser:BSUser?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.registerNib(UINib(nibName: "TVCellForRequestBook", bundle: nil), forCellReuseIdentifier: "bookcell")
-        let query = PFQuery(className: "Request")
-        query.whereKey("BelongTo", equalTo:currentUser!)
-        query.includeKey("forBook")
-        query.findObjectsInBackgroundWithBlock { (objects, error) -> Void in
-            if let objects = objects {
-                for object in objects {
-                    self.cellData.append(object)
-                }
+        //belongto equal currentUser
+        BSReqlist.search("") { (error, dicts) -> Void in
+            guard let dicts = dicts else {return}
+            for dict in dicts {
+                self.cellData.append(dict)
             }
             self.tableView.reloadData()
         }
+
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight = 50
     }
@@ -46,9 +44,9 @@ class MeRequestTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("bookcell", forIndexPath: indexPath) as! TVCellForRequestBook
-        cell.setBookName(cellData[indexPath.row]["forBook"]["bookName"] as! String)
-        cell.setBookEdition(cellData[indexPath.row]["forBook"]["edition"] as! Int)
-        cell.setBookAuthor(cellData[indexPath.row]["forBook"]["Author"] as! String)
+        cell.setBookName(cellData[indexPath.row]["BookName"] as! String)
+        cell.setBookEdition(cellData[indexPath.row]["Edition"] as! Int)
+        cell.setBookAuthor(cellData[indexPath.row]["Author"] as! String)
         return cell
     }
 

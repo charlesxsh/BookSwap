@@ -27,22 +27,18 @@ class BookRequestViewController: UIViewController, UITextFieldDelegate {
     
     
     @IBAction func makeRequest(sender: AnyObject) {
-        let bookrequest = PFObject(className: "Request")
-        bookrequest["BelongTo"] = PFUser.currentUser()!
+        let bookrequest = BSReqlist()
+        bookrequest.BelongTo = BSGlobal.currentUser!
         
-        let book = PFObject(className: "Book")
-        book["bookName"] = self.txfieldBookName.text!
-        book["Author"] = self.txfieldBookAuthor.text!
-        book["edition"] = Int(self.txfieldBookEdition.text!)
-        book.saveInBackgroundWithBlock { (success, error) -> Void in
-            if success{
-                bookrequest["forBook"] = book
-                bookrequest.saveInBackgroundWithBlock({ (success, error) -> Void in
-                    if success{
-                        self.navigationController?.popViewControllerAnimated(true)
-                    }
-                })
+        bookrequest.bookName = self.txfieldBookName.text!
+        bookrequest.authorName = self.txfieldBookAuthor.text!
+        bookrequest.edition = Int(self.txfieldBookEdition.text!)
+        bookrequest.upLoad { (error) -> Void in
+            guard error == nil else {
+                debugPrint(error)
+                return
             }
+            self.navigationController?.popViewControllerAnimated(true)
         }
     }
     
