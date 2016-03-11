@@ -13,7 +13,7 @@ class BooksTableViewController: UITableViewController, UISearchResultsUpdating {
     var selectedIndex:NSIndexPath?
     var resultSearchController:UISearchController!
 //    var filteredTableData = []()
-    var cellData:[BSOnlist] = [BSOnlist]()
+    var cellData:[BSObject] = [BSObject]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -69,7 +69,7 @@ class BooksTableViewController: UITableViewController, UISearchResultsUpdating {
 //            return cell
 //        }
         cell.setbookNameForCell(cellData[indexPath.row]["BookName"] as! String)
-        cell.setbookOwnerForCell(cellData[indexPath.row]["BelongTo"]["DisplayName"] as! String)
+        cell.setbookOwnerForCell(cellData[indexPath.row]["BelongTo"]!["DisplayName"] as! String)
         cell.setBookedition(cellData[indexPath.row]["Edition"] as! Int)
         let imgFile = UIImage(data: cellData[indexPath.row]["coverImg"] as! NSData)
         cell.setBookImageForCell(imgFile!)
@@ -80,7 +80,7 @@ class BooksTableViewController: UITableViewController, UISearchResultsUpdating {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "segShowBookDetail"{
             let des:BookDetailViewController = segue.destinationViewController as! BookDetailViewController
-            des.setListPFObject(self.cellData[self.selectedIndex!.row])
+            des.setBSListObject(self.cellData[self.selectedIndex!.row])
         }
         
     }

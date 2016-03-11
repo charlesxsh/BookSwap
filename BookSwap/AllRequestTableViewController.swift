@@ -10,7 +10,7 @@ import UIKit
 
 class AllRequestTableViewController: UITableViewController {
     
-    var cellData:[BSDictRef] = [BSDictRef]()
+    var cellData:[BSObject] = [BSObject]()
     
     override func viewDidLoad() {
         super.viewDidLoad()

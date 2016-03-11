@@ -8,34 +8,46 @@
 
 import UIKit
 
-class BSObject {
+public class BSObject:NSObject {
     
     internal var params:[String:AnyObject]!
     
-    internal var objectId:String?
+    public var objectId:String? {
+        get{ return self.params["_id"] as? String }
+        set(newValue){ self.params["_id"] = newValue }
+    }
     
-    subscript(key: String) -> AnyObject {
+    public subscript(key: String) -> AnyObject? {
         get {
-            return self.params[key]!
+            return self.params[key]
         }
         set(Value) {
             self.params[key] = Value
         }
     }
     
-    internal init() {
+    public override init() {
         params = [String:String](minimumCapacity: 3)
     }
     
-    internal init(ParameterCapacity c:Int) {
+    public init(ParameterCapacity c:Int) {
         params = [String:String](minimumCapacity: c)
     }
     
+    public init(json:[String:AnyObject]) {
+        params = [String:String](minimumCapacity: json.count)
+        for (k, v) in json {
+            if v is [String:AnyObject] {
+                self.params[k] = BSObject(json: v as! [String : AnyObject])
+            }else {
+                self.params[k] = v
+            }
+        }
+    }
     
     //transfer dictionary to json
-    internal func toJsonData()->NSData?{
+    public func toJsonData()->NSData?{
         if self.params.isEmpty { return nil }
-        
         var data:NSData?
         do {
             data = try NSJSONSerialization.dataWithJSONObject(self.params, options: .PrettyPrinted)
@@ -45,10 +57,8 @@ class BSObject {
         return data
     }
     
-    
-    
     //save object to given url using json
-    internal func save(url:String!,completionHandler: (NSData?, NSURLResponse?, NSError?) -> Void) {
+    public func save(url:String!,completionHandler: (NSData?, NSURLResponse?, NSError?) -> Void) {
         let url = NSURL(string: url)
         let request = NSMutableURLRequest(URL: url!)
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -59,4 +69,5 @@ class BSObject {
     }
     
 }
+
 

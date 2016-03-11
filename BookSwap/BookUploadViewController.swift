@@ -167,35 +167,28 @@ class BookUploadViewController: UIViewController, UIImagePickerControllerDelegat
     }
     
     @IBAction func postABook(sender: AnyObject) {
-        PFUser.signCheck(self)
-        let book = PFObject(className: "Book")
-        book["bookName"] = self.TFBookName.text!
-        book["Author"] = self.TFAuthor.text!
-        book["edition"] = Int(self.TFEdition.text!)
-        let afterScareImg = UIImage.resizeImage(self.ImageViewBook.image!, newWidth: 600)
-        book["coverImg"] = PFFile(data: UIImagePNGRepresentation(afterScareImg)!)
         
-        let post = PFObject(className: "Listing")
-        post["sellPrice"] = self.sPrice
-        post["rentPrice"] = self.rPrice
-        post["swap"] = self.isSwap
-        
-        post["BelongTo"] = PFUser.currentUser()!
-        book.saveInBackgroundWithBlock { (success, error) -> Void in
-            if success{
-                post["book"] = book
-                post.saveInBackgroundWithBlock({ (success, error) -> Void in
-                    if success{
-                        self.dismissViewControllerAnimated(true, completion: nil)
-                        self.navigationController?.popViewControllerAnimated(true)
-                    }
-                })
-            }else{
-                print(error)
-            }
+        if !BSGlobal.isLogin() {
+            return
         }
-        
-       
+        let book = BSOnlist()
+        //let book = PFObject(className: "Book")
+        book.bookName = self.TFBookName.text!
+        book.authorName = self.TFAuthor.text!
+        book.edition = Int(self.TFEdition.text!)!
+        let afterScareImg = UIImage.resizeImage(self.ImageViewBook.image!, newWidth: 500)
+        book.coverImg = afterScareImg
+        book.sellPrice = self.sPrice
+        book.rentPrice = self.rPrice
+        book.ifSwap = self.isSwap
+        book.BelongTo = BSGlobal.currentUser!
+        book.upLoad { (error) -> Void in
+            guard error != nil else {
+                return
+            }
+            self.dismissViewControllerAnimated(true, completion: nil)
+            self.navigationController?.popViewControllerAnimated(true)
+        }       
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {

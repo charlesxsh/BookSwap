@@ -10,7 +10,7 @@ import UIKit
 
 class MeRequestTableViewController: UITableViewController {
     
-    var cellData:[BSDictRef] = [BSDictRef]()
+    var cellData:[BSObject] = [BSObject]()
     var currentUser:BSUser?
     
     override func viewDidLoad() {

@@ -52,19 +52,17 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UIImagePicker
     }
     
     @IBAction func signUpNewUser(sender: AnyObject) {
-        let user = PFUser()
-        user.username = txfiedUsername.text!
+        let user:BSUser = BSUser()
         user.email = txfiedUsername.text!
         user.password = txfiedPassword.text!
-        user["DisplayName"] = txfiedDisplayName.text!
+        user.displayName = txfiedDisplayName.text!
         let img = UIImage.resizeImage(self.imgProfie.image!, newWidth: 200)
-        user["profie"] = PFFile(data: UIImagePNGRepresentation(img)!)
-        user.signUpInBackgroundWithBlock { (success, error) -> Void in
-            if success {
-                self.logindelegate?.loginIn(user.username!, passwd: user.password!)
-                self.dismissViewControllerAnimated(true, completion: nil)
-            }
+        user.profie = img
+        user.signUp { (error, user) -> Void in
+            self.logindelegate?.loginIn(user!.displayName!, passwd: user!.password!)
+            self.dismissViewControllerAnimated(true, completion: nil)
         }
+        
     }
     
     @IBAction func hideKeyboard(sender: UIGestureRecognizer){

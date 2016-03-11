@@ -35,7 +35,14 @@ class SignInViewController: UIViewController, loginDelegate, UITextFieldDelegate
     }
     
     func signIn(usrname:String, passwd:String){
-        PFUser.logInWithUsernameInBackground(usrname, password: passwd) { (user, error) -> Void in
+//        BSUser.logInWithUsernameInBackground(usrname, password: passwd) { (user, error) -> Void in
+//            self.dismissViewControllerAnimated(true, completion: nil)
+//        }
+        BSUser.signIn(Email: usrname, Password: passwd) { (error) -> Void in
+            guard error != nil else {
+                debugPrint(error)
+                return
+            }
             self.dismissViewControllerAnimated(true, completion: nil)
         }
     }
@@ -50,9 +57,16 @@ class SignInViewController: UIViewController, loginDelegate, UITextFieldDelegate
     }
     
     @IBAction func btnSignin(sender:UIButton){
-        PFUser.logInWithUsernameInBackground(txFieldUserName.text!, password: txFieldPassword.text!) { (user, error) -> Void in
+        BSUser.signIn(Email: txFieldUserName.text!, Password: txFieldPassword.text!) { (error) -> Void in
+            guard error != nil else {
+                debugPrint(error)
+                return
+            }
             self.dismissViewControllerAnimated(true, completion: nil)
         }
+//        PFUser.logInWithUsernameInBackground(txFieldUserName.text!, password: txFieldPassword.text!) { (user, error) -> Void in
+//            self.dismissViewControllerAnimated(true, completion: nil)
+//        }
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {

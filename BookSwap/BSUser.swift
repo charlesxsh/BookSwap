@@ -8,34 +8,34 @@
 
 import UIKit
 
-class BSUser: BSObject {
+public class BSUser: BSObject {
     
-    var email:String? {
-        get {return super.params["email"] as? String}
-        set(newStr) {super.params["email"] = newStr}
+    public var email:String? {
+        get {return super.params["Email"] as? String}
+        set(newStr) {super.params["Email"] = newStr}
     }
     
-    var password:String? {
-        get {return super.params["password"] as? String}
-        set(newStr) {super.params["password"] = newStr}
+    public var password:String? {
+        get {return super.params["Password"] as? String}
+        set(newStr) {super.params["Password"] = newStr}
     }
     
-    var displayName:String? {
-        get {return super.params["displayname"] as? String }
-        set(newStr) {super.params["displayname"] = newStr}
+    public var displayName:String? {
+        get {return super.params["Displayname"] as? String }
+        set(newStr) {super.params["Displayname"] = newStr}
     }
     
-    var profie:UIImage? {
-        get{ return UIImage(data:super.params["profie"] as! NSData) }
-        set(img) {super.params["profie"] = UIImagePNGRepresentation(img!)}
+    public var profie:UIImage? {
+        get{ return UIImage(data:super.params["Profie"] as! NSData) }
+        set(img) {super.params["Profie"] = UIImagePNGRepresentation(img!)}
     }
     
-    init(Email _email:String!,Password _password:String!,Displayname _displayname:String!, Profie _profie:UIImage?) {
+    public init(Email _email:String!,Password _password:String!,Displayname _displayname:String!, Profie _profie:UIImage?) {
         super.init(ParameterCapacity: 3)
-        super.params["email"] = _email
-        super.params["password"] = _password
-        super.params["displayname"] = _displayname
-        super.params["profie"] = _profie
+        super.params["Email"] = _email
+        super.params["Password"] = _password
+        super.params["DisplayName"] = _displayname
+        super.params["Profie"] = _profie
     }
     /**
      * var userSchema = new Schema({
@@ -47,14 +47,23 @@ class BSUser: BSObject {
      CreatedAt:{type:Date, default:Date.now}
      });
      */
-    init(jsondata:BSDictRef) {
+    public init(jsondata:BSDictRef) {
         super.init(ParameterCapacity: 3)
         self.email = jsondata["Email"] as? String
         self.displayName = jsondata["Password"] as? String
         self.profie = UIImage(data: jsondata["Profie"] as! NSData)
     }
     
-    func signUp(callback:(BSError?, BSUser?)->Void) {
+    public override init() {
+        super.init()
+    }
+    
+    public static func logOut(callback:(BSError?)->Void) {
+        BSGlobal.currentUser = nil
+        callback(nil)
+    }
+    
+    public func signUp(callback:(BSError?, BSUser?)->Void) {
         super.save("") { (data, reponse, error) -> Void in
             do{
                 let jsondata = try NSJSONSerialization.JSONObjectWithData(data!, options: []) as! [String: AnyObject]
@@ -72,7 +81,7 @@ class BSUser: BSObject {
         }
     }
     
-    static func signIn(Email _email:String!,Password _password:String!, callback:(BSError?)->Void) {
+    public static func signIn(Email _email:String!,Password _password:String!, callback:(BSError?)->Void) {
         let url = NSURL(string: "")
         let request = NSMutableURLRequest(URL: url!)
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -91,13 +100,25 @@ class BSUser: BSObject {
         
         let task =  NSURLSession.sharedSession().dataTaskWithRequest(request){
             (data, reponse, err) ->Void in
-            let result:BSResult = BSUtil.jsonToBSResult(data)
-            if !result.isError() {
-                callback(nil)
+            let result:BSDictRef? = BSUtil.jsonToDictionary(data)
+            guard result != nil else {
+                callback(BSError(_errorStr: "BSUser: Cannot parse returned json"))
+                return
+            }
+            if result!["status"] as!String != "OK" {
+                callback(BSError(_errorStr: result!["status"] as! String))
             }else {
-                callback(BSError(_errorStr: result.status))
+                let currUser:BSUser = BSUser()
+                currUser.email = _email
+                currUser.displayName = result!["DisplayName"] as? String
+                currUser.profie = UIImage(data: result!["Profie"] as! NSData)
+                currUser.objectId = result!["id"] as? String
+                BSGlobal.currentUser = currUser
+                callback(nil)
             }
         }
         task.resume()
     }
+    
+    
 }

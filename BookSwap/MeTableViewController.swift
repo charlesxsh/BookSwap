@@ -54,7 +54,7 @@ class MeTableViewController: UITableViewController {
 //                img.getDataInBackgroundWithBlock({ (data, error) -> Void in
 //                    cell.setProfie(UIImage(data: data!)!)
 //                })
-                cell.setProfie(self.currentUser)
+                cell.setProfie(self.currentUser!.profie!)
                 cell.setDisplayName(self.currentUser!["DisplayName"] as! String)
                 return cell
         case "Email":
@@ -73,11 +73,11 @@ class MeTableViewController: UITableViewController {
         switch(segue.identifier!){
         case "showlist":
             let dest = segue.destinationViewController as! MeListTableViewController
-            dest.currentUser = PFUser.currentUser()!
+            dest.currentUser = BSGlobal.currentUser!
             break
         case "showrequest":
             let dest = segue.destinationViewController as! MeRequestTableViewController
-            dest.currentUser = PFUser.currentUser()!
+            dest.currentUser = BSGlobal.currentUser!
             break
         default:
             break
@@ -97,9 +97,8 @@ class MeTableViewController: UITableViewController {
                 break
             }
         }
-        
-        if indexPath.section == 2{
-            PFUser.logOutInBackgroundWithBlock({ (error) -> Void in
+        else if indexPath.section == 2{
+            BSUser.logOut({ (error) -> Void in
                 self.tabBarController?.selectedIndex = 0
             })
         }

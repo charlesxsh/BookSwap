@@ -10,14 +10,23 @@ import UIKit
 
 public struct BSResult {
     public var status:String?
-    public var results:[BSDictRef]?
+    public var results:[BSObject]?
     
     public func isError()->Bool{
-        return self.status != "OK"
+        return self.status != BSStatus.OK
     }
     
-    init(status:String!, results:[BSDictRef]?) {
+    public mutating func addResult(r:BSObject?) {
+        self.results?.append(r!)
+    }
+    
+    init(status:String!) {
         self.status = status
-        self.results = results
+        self.results = [BSObject]()
+    }
+    
+    init(){
+        self.results = [BSObject]()
     }
 }
+

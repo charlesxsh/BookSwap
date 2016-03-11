@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BSError:CustomStringConvertible{
+public class BSError:CustomStringConvertible{
     var errorStr:String?
     
     init(_errorStr:String!)
@@ -16,7 +16,7 @@ class BSError:CustomStringConvertible{
         self.errorStr = _errorStr
     }
     
-    var description: String {
+    public var description: String {
         return "[Error]:\(self.errorStr)"
     }
     

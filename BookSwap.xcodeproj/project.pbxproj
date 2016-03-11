@@ -16,6 +16,7 @@
 		4D60AC7F1C8FDE4000D7C560 /* BSType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D60AC7E1C8FDE4000D7C560 /* BSType.swift */; };
 		4D60AC811C8FDE8600D7C560 /* BSResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D60AC801C8FDE8600D7C560 /* BSResult.swift */; };
 		4D60AC831C8FDEE100D7C560 /* BSUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D60AC821C8FDEE100D7C560 /* BSUtil.swift */; };
+		4D60AC861C929A9E00D7C560 /* BSQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D60AC851C929A9E00D7C560 /* BSQuery.swift */; };
 		567650521C54A7430007AA7A /* MeListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567650511C54A7430007AA7A /* MeListTableViewController.swift */; };
 		567650541C54A75A0007AA7A /* MeRequestTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567650531C54A75A0007AA7A /* MeRequestTableViewController.swift */; };
 		567650571C54B5A00007AA7A /* TVCellForRequestBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567650551C54B5A00007AA7A /* TVCellForRequestBook.swift */; };
@@ -85,7 +86,7 @@
 		4D60AC7E1C8FDE4000D7C560 /* BSType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BSType.swift; sourceTree = "<group>"; };
 		4D60AC801C8FDE8600D7C560 /* BSResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BSResult.swift; sourceTree = "<group>"; };
 		4D60AC821C8FDEE100D7C560 /* BSUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BSUtil.swift; sourceTree = "<group>"; };
-		4D60AC841C920FF000D7C560 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; };
+		4D60AC851C929A9E00D7C560 /* BSQuery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BSQuery.swift; sourceTree = "<group>"; };
 		567650511C54A7430007AA7A /* MeListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeListTableViewController.swift; sourceTree = "<group>"; };
 		567650531C54A75A0007AA7A /* MeRequestTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeRequestTableViewController.swift; sourceTree = "<group>"; };
 		567650551C54B5A00007AA7A /* TVCellForRequestBook.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TVCellForRequestBook.swift; sourceTree = "<group>"; };
@@ -105,8 +106,6 @@
 		569D89A21C54329D002F8B39 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		569D89A41C5432A4002F8B39 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		569D89A61C5432AC002F8B39 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
-		569D89A91C5432EB002F8B39 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = Parse/Bolts.framework; sourceTree = SOURCE_ROOT; };
-		569D89AA1C5432EB002F8B39 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = Parse/Parse.framework; sourceTree = SOURCE_ROOT; };
 		569D89AD1C543769002F8B39 /* TVCellForMe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TVCellForMe.swift; sourceTree = "<group>"; };
 		569D89AE1C543769002F8B39 /* TVCellForMe.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TVCellForMe.xib; sourceTree = "<group>"; };
 		569D89B11C54499E002F8B39 /* MeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeTableViewController.swift; sourceTree = "<group>"; };
@@ -183,6 +182,7 @@
 				4D60AC7E1C8FDE4000D7C560 /* BSType.swift */,
 				4D60AC801C8FDE8600D7C560 /* BSResult.swift */,
 				4D60AC821C8FDEE100D7C560 /* BSUtil.swift */,
+				4D60AC851C929A9E00D7C560 /* BSQuery.swift */,
 			);
 			name = Database;
 			sourceTree = "<group>";
@@ -190,8 +190,6 @@
 		569D89A81C5432B8002F8B39 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				569D89A91C5432EB002F8B39 /* Bolts.framework */,
-				569D89AA1C5432EB002F8B39 /* Parse.framework */,
 				569D89A61C5432AC002F8B39 /* AudioToolbox.framework */,
 				569D89A41C5432A4002F8B39 /* CFNetwork.framework */,
 				569D89A21C54329D002F8B39 /* CoreGraphics.framework */,
@@ -239,7 +237,6 @@
 				56F8BCAE1C53106C00F393CE /* Assets.xcassets */,
 				56F8BCB01C53106C00F393CE /* LaunchScreen.storyboard */,
 				56F8BCB31C53106C00F393CE /* Info.plist */,
-				4D60AC841C920FF000D7C560 /* MyPlayground.playground */,
 			);
 			path = BookSwap;
 			sourceTree = "<group>";
@@ -461,6 +458,7 @@
 				569D89B91C545754002F8B39 /* CellForDefaultItem.swift in Sources */,
 				569D89B51C5452D6002F8B39 /* TVCellForMeEmail.swift in Sources */,
 				569D89931C542655002F8B39 /* SignUpViewController.swift in Sources */,
+				4D60AC861C929A9E00D7C560 /* BSQuery.swift in Sources */,
 				569D898F1C5421AB002F8B39 /* BookUploadViewController.swift in Sources */,
 				56F8BCDB1C5312F400F393CE /* TVCellForBooks.swift in Sources */,
 				4D60AC811C8FDE8600D7C560 /* BSResult.swift in Sources */,

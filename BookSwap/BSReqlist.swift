@@ -43,7 +43,7 @@ class BSReqlist:BSObject {
         }
     }
     
-    static func search(str:String, callback:(BSError?, [BSDictRef]?)->Void){
+    static func search(str:String, callback:(BSError?, [BSObject]?)->Void){
         let url = NSURL(string: "http://127.0.0.1:8080/api/search/request")
         let request = NSMutableURLRequest(URL: url!)
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")

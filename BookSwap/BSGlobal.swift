@@ -10,7 +10,7 @@ import UIKit
 
 struct BSGlobal {
 
-    static let baseUrl:String! = "http://127.0.0.1:8080/api/users/signup"
+    static let baseUrl:String! = "http://127.0.0.1:8080/api"
     static var currentUser:BSUser?
     
     static func isLogin()->Bool{

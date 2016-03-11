@@ -24,7 +24,7 @@ class BookDetailViewController: UIViewController {
     @IBOutlet weak var lblDisplayName: UILabel!
     @IBOutlet weak var lblEmail: UILabel!
     
-    var listObject:BSDictRef?
+    var listObject:BSObject?
     var enableSell:Bool = false
     var enableRent:Bool = false
     var enableSwap:Bool = false
@@ -39,7 +39,7 @@ class BookDetailViewController: UIViewController {
         let imgFile = self.listObject!["coverImg"] as! NSData
         self.setBookImg(UIImage(data: imgFile)!)
         self.setEdition(self.listObject!["Edition"] as! Int)
-        self.setOwnerInformation(BSUser(jsondata: (self.listObject!["BelongTo"] as! BSDictRef)))
+        self.setOwnerInformation(self.listObject!["BelongTo"] as! BSUser)
         if self.listObject!["sellPrice"] as! Float != -1{
             enableSell = true
         }
@@ -74,7 +74,7 @@ class BookDetailViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func setListPFObject(obj:BSDictRef){
+    func setBSListObject(obj:BSObject){
         self.listObject = obj
         
     }
@@ -95,13 +95,10 @@ class BookDetailViewController: UIViewController {
         self.lblEdition.text = "Edition:\(edition)th"
     }
     
-    func setOwnerInformation(user:BSDictRef){
-        self.lblEmail.text = user["email"] as? String
-        self.lblDisplayName.text = user["DisplayName"] as? String
-        let imgFile = user["profie"] as! PFFile
-        imgFile.getDataInBackgroundWithBlock { (img, error) -> Void in
-            self.imgProfie.image = UIImage(data: img!)!
-        }
+    func setOwnerInformation(user:BSUser){
+        self.lblEmail.text = user.email
+        self.lblDisplayName.text = user.displayName
+        self.imgProfie.image = user.profie
     }
     
     @IBAction func btnBuyClicked(sender:UIButton){
@@ -122,8 +119,7 @@ class BookDetailViewController: UIViewController {
         switch(segue.identifier!){
         case "showrequest":
             let dest = segue.destinationViewController as! MeRequestTableViewController
-            dest.currentUser = self.listObject!["BelongTo"] as? PFUser
-            
+            dest.currentUser = self.listObject!["BelongTo"] as? BSUser
             break
         default:
             break;

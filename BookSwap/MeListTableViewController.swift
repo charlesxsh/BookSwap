@@ -9,24 +9,25 @@
 import UIKit
 class MeListTableViewController: UITableViewController {
     
-    var cellData:[PFObject] = [PFObject]()
+    var cellData:[BSObject] = [BSObject]()
 //    let currentUser:PFUser = PFUser.currentUser()!
-    var currentUser:PFUser?
+    var currentUser:BSUser?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.registerNib(UINib(nibName: "TVCellForBooks", bundle: nil), forCellReuseIdentifier: "bookcell")
-        let query = PFQuery(className: "Listing")
-        query.whereKey("BelongTo", equalTo:currentUser!)
-        query.includeKey("book")
-        query.findObjectsInBackgroundWithBlock { (objects, error) -> Void in
-            if let objects = objects {
-                for object in objects {
-                    self.cellData.append(object)
-                }
-            }
-            self.tableView.reloadData()
-        }
+        
+//        let query = PFQuery(className: "Listing")
+//        query.whereKey("BelongTo", equalTo:currentUser!)
+//        query.includeKey("book")
+//        query.findObjectsInBackgroundWithBlock { (objects, error) -> Void in
+//            if let objects = objects {
+//                for object in objects {
+//                    self.cellData.append(object)
+//                }
+//            }
+//            self.tableView.reloadData()
+//        }
         // Do any additional setup after loading the view.
     }
     
@@ -45,12 +46,10 @@ class MeListTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("bookcell", forIndexPath: indexPath) as! TVCellForBooks
-        cell.setbookNameForCell(cellData[indexPath.row]["book"]["bookName"] as! String)
+        cell.setbookNameForCell(cellData[indexPath.row]["BookName"] as! String)
         cell.setbookOwnerForCell("Myself")
-        let imgFile = cellData[indexPath.row]["book"]["coverImg"] as! PFFile
-        imgFile.getDataInBackgroundWithBlock { (img, error) -> Void in
-            cell.setBookImageForCell(UIImage(data: img!)!)
-        }
+        let imgFile = cellData[indexPath.row]["coverImg"] as! NSData
+        cell.setBookImageForCell(UIImage(data: imgFile)!)
         
         return cell
     }

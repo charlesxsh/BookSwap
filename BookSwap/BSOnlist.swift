@@ -44,13 +44,13 @@ class BSOnlist:BSObject{
         set(img) {super.params["coverimage"] = UIImagePNGRepresentation(img!)}
     }
     
-    var sellPrice:Int?{
-        get {return Int(super.params["sellprice"] as! String) }
+    var sellPrice:Float?{
+        get {return Float(super.params["sellprice"] as! String) }
         set(newStr) {super.params["sellprice"] = String(newStr)}
     }
 
-    var rentPrice:Int?{
-        get {return Int(super.params["rentprice"] as! String) }
+    var rentPrice:Float?{
+        get {return Float(super.params["rentprice"] as! String) }
         set(newStr) {super.params["rentprice"] = String(newStr)}
     }
 
@@ -59,7 +59,7 @@ class BSOnlist:BSObject{
         set(newStr) {super.params["ifSwap"] = (String(newStr) == "true" ? true:false)}
     }
 
-    var BelongTo:BSUser?
+    var BelongTo:BSUser? 
     
     override init() {
         super.init(ParameterCapacity: 8)
