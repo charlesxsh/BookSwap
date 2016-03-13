@@ -21,13 +21,16 @@ public class BSUser: BSObject {
     }
     
     public var displayName:String? {
-        get {return super.params["Displayname"] as? String }
-        set(newStr) {super.params["Displayname"] = newStr}
+        get {return super.params["DisplayName"] as? String }
+        set(newStr) {super.params["DisplayName"] = newStr}
     }
     
     public var profie:UIImage? {
-        get{ return UIImage(data:super.params["Profie"] as! NSData) }
-        set(img) {super.params["Profie"] = UIImagePNGRepresentation(img!)}
+        get{ return UIImage(data:NSData(base64EncodedString: super.params["Profie"] as! String, options:[])!) }
+        set(img) {
+            let imgdata = UIImagePNGRepresentation(img!)!
+            let imgstr = imgdata.base64EncodedStringWithOptions([])
+            super.params["Profie"] = imgstr}
     }
     
     public init(Email _email:String!,Password _password:String!,Displayname _displayname:String!, Profie _profie:UIImage?) {
@@ -64,9 +67,14 @@ public class BSUser: BSObject {
     }
     
     public func signUp(callback:(BSError?, BSUser?)->Void) {
-        super.save("") { (data, reponse, error) -> Void in
+        let urlStr = "\(BSGlobal.baseUrl)/User/signup"
+        super.save(urlStr) { (data, reponse, error) -> Void in
+            guard data != nil else {
+                callback(BSError(_errorStr: "Signup:\(urlStr): null data"), nil)
+                return
+            }
             do{
-                let jsondata = try NSJSONSerialization.JSONObjectWithData(data!, options: []) as! [String: AnyObject]
+                let jsondata = try NSJSONSerialization.JSONObjectWithData(data!, options: [.MutableContainers]) as! [String: AnyObject]
                 let status:String = jsondata["status"] as! String
                 if status == "OK" {
                     super.objectId = jsondata["id"] as? String
@@ -82,7 +90,8 @@ public class BSUser: BSObject {
     }
     
     public static func signIn(Email _email:String!,Password _password:String!, callback:(BSError?)->Void) {
-        let url = NSURL(string: "")
+        let urlStr = "\(BSGlobal.baseUrl)/User/signin"
+        let url = NSURL(string: urlStr)
         let request = NSMutableURLRequest(URL: url!)
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.HTTPMethod = "POST"
@@ -100,6 +109,10 @@ public class BSUser: BSObject {
         
         let task =  NSURLSession.sharedSession().dataTaskWithRequest(request){
             (data, reponse, err) ->Void in
+            guard data != nil else {
+                callback(BSError(_errorStr: "Null data return for \(urlStr):\(tempDict)"))
+                return
+            }
             let result:BSDictRef? = BSUtil.jsonToDictionary(data)
             guard result != nil else {
                 callback(BSError(_errorStr: "BSUser: Cannot parse returned json"))
@@ -111,7 +124,10 @@ public class BSUser: BSObject {
                 let currUser:BSUser = BSUser()
                 currUser.email = _email
                 currUser.displayName = result!["DisplayName"] as? String
-                currUser.profie = UIImage(data: result!["Profie"] as! NSData)
+                let imgStr = result!["Profie"] as! String
+                let imgData = NSData(base64EncodedString: imgStr, options: [])
+                let img:UIImage = UIImage(data: imgData!)!
+                currUser.profie = img
                 currUser.objectId = result!["id"] as? String
                 BSGlobal.currentUser = currUser
                 callback(nil)

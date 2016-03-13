@@ -29,17 +29,18 @@ class BooksTableViewController: UITableViewController, UISearchResultsUpdating {
             return controller
         })()
         
-//        let query = PFQuery(className: "Listing")
-//        query.includeKey("book")
-//        query.includeKey("BelongTo")
-//        query.findObjectsInBackgroundWithBlock { (objects, error) -> Void in
-//            if let objects = objects{
-//                for object in objects{
-//                    self.cellData.append(object)
-//                }
-//            }
-//            self.tableView.reloadData()
-//        }
+        let query = BSQuery(collectionName: "OnList")
+        //query.whereKey("BookName", equalTo: AnyObject)
+        query.query { (error, objects) -> Void in
+            guard let objects = objects else {
+                return
+            }
+            for object in objects{
+                self.cellData.append(object)
+            }
+            self.tableView.reloadData()
+        }
+
     }
 
     override func didReceiveMemoryWarning() {

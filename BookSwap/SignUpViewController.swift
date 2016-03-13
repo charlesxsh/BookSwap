@@ -56,10 +56,11 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UIImagePicker
         user.email = txfiedUsername.text!
         user.password = txfiedPassword.text!
         user.displayName = txfiedDisplayName.text!
-        let img = UIImage.resizeImage(self.imgProfie.image!, newWidth: 200)
+        let img = UIImage.resizeImage(self.imgProfie.image!, newWidth: 100)
         user.profie = img
+        print(user.profie)
         user.signUp { (error, user) -> Void in
-            self.logindelegate?.loginIn(user!.displayName!, passwd: user!.password!)
+            self.logindelegate?.loginIn(user!.email!, passwd: user!.password!)
             self.dismissViewControllerAnimated(true, completion: nil)
         }
         

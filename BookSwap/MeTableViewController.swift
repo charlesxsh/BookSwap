@@ -55,11 +55,11 @@ class MeTableViewController: UITableViewController {
 //                    cell.setProfie(UIImage(data: data!)!)
 //                })
                 cell.setProfie(self.currentUser!.profie!)
-                cell.setDisplayName(self.currentUser!["DisplayName"] as! String)
+                cell.setDisplayName(self.currentUser!.displayName!)
                 return cell
         case "Email":
             let cell:TVCellForMeEmail = tableView.dequeueReusableCellWithIdentifier("emailcell", forIndexPath: indexPath) as! TVCellForMeEmail
-            cell.setEmail(self.currentUser!["email"] as! String)
+            cell.setEmail(self.currentUser!.email!)
             return cell
         default:
             let cell:UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "cell")

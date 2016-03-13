@@ -15,14 +15,18 @@ class AllRequestTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.registerNib(UINib(nibName: "TVCellForRequestBook", bundle: nil), forCellReuseIdentifier: "bookcell")
-
-        BSReqlist.search("") { (error, dicts) -> Void in
-            guard let dicts = dicts else {return}
-            
-            for dict in dicts{
-                self.cellData.append(dict)
+        let query = BSQuery(collectionName: "RequestList")
+        //query.whereKey("BookName", equalTo: AnyObject)
+        query.query { (error, objects) -> Void in
+            guard let objects = objects else {
+                return
             }
+            for object in objects{
+                self.cellData.append(object)
+            }
+            self.tableView.reloadData()
         }
+        
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight = 50
         // Uncomment the following line to preserve selection between presentations
@@ -51,9 +55,10 @@ class AllRequestTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("bookcell", forIndexPath: indexPath) as! TVCellForRequestBook
-        cell.setBookName(cellData[indexPath.row]["bookname"] as! String)
-        cell.setBookEdition(cellData[indexPath.row]["edition"]as! Int)
-        cell.setBookAuthor(cellData[indexPath.row]["authorname"] as! String)
+        
+        cell.setBookName(cellData[indexPath.row]["BookName"] as! String)
+        cell.setBookEdition(cellData[indexPath.row]["Edition"]as! Int)
+        cell.setBookAuthor(cellData[indexPath.row]["Author"] as! String)
         return cell
     }
 

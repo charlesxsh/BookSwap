@@ -39,7 +39,8 @@ class SignInViewController: UIViewController, loginDelegate, UITextFieldDelegate
 //            self.dismissViewControllerAnimated(true, completion: nil)
 //        }
         BSUser.signIn(Email: usrname, Password: passwd) { (error) -> Void in
-            guard error != nil else {
+            guard error == nil else {
+                print("sdf")
                 debugPrint(error)
                 return
             }
@@ -58,7 +59,7 @@ class SignInViewController: UIViewController, loginDelegate, UITextFieldDelegate
     
     @IBAction func btnSignin(sender:UIButton){
         BSUser.signIn(Email: txFieldUserName.text!, Password: txFieldPassword.text!) { (error) -> Void in
-            guard error != nil else {
+            guard error == nil else {
                 debugPrint(error)
                 return
             }
