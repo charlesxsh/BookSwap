@@ -11,50 +11,35 @@ import UIKit
 public class BSUser: BSObject {
     
     public var email:String? {
-        get {return super.params["Email"] as? String}
-        set(newStr) {super.params["Email"] = newStr}
+        get {return super.params["email"] as? String}
+        set(newStr) {super.params["email"] = newStr}
     }
     
     public var password:String? {
-        get {return super.params["Password"] as? String}
-        set(newStr) {super.params["Password"] = newStr}
+        get {return super.params["password"] as? String}
+        set(newStr) {super.params["password"] = newStr}
     }
     
     public var displayName:String? {
-        get {return super.params["DisplayName"] as? String }
-        set(newStr) {super.params["DisplayName"] = newStr}
+        get {return super.params["displayName"] as? String }
+        set(newStr) {super.params["displayName"] = newStr}
     }
     
     public var profie:UIImage? {
-        get{ return UIImage(data:NSData(base64EncodedString: super.params["Profie"] as! String, options:[])!) }
+        get{ return UIImage(data:NSData(base64EncodedString: super.params["profie"] as! String, options:[])!) }
         set(img) {
             let imgdata = UIImagePNGRepresentation(img!)!
             let imgstr = imgdata.base64EncodedStringWithOptions([])
-            super.params["Profie"] = imgstr}
+            super.params["profie"] = imgstr
+        }
     }
     
     public init(Email _email:String!,Password _password:String!,Displayname _displayname:String!, Profie _profie:UIImage?) {
         super.init(ParameterCapacity: 3)
-        super.params["Email"] = _email
-        super.params["Password"] = _password
-        super.params["DisplayName"] = _displayname
-        super.params["Profie"] = _profie
-    }
-    /**
-     * var userSchema = new Schema({
-     Profie:{data: Schema.Types.Buffer, contentType:String},
-     DisplayName:String,
-     Email:{ type: String, required: true, unique: true },
-     Password:String,
-     EmailVerified:Boolean,
-     CreatedAt:{type:Date, default:Date.now}
-     });
-     */
-    public init(jsondata:BSDictRef) {
-        super.init(ParameterCapacity: 3)
-        self.email = jsondata["Email"] as? String
-        self.displayName = jsondata["Password"] as? String
-        self.profie = UIImage(data: jsondata["Profie"] as! NSData)
+        self.displayName = _displayname
+        self.email = _email
+        self.password = _password
+        self.profie = _profie
     }
     
     public override init() {

@@ -9,21 +9,23 @@
 import UIKit
 class BSReqlist:BSObject {
     var bookName:String? {
-        get {return super.params["bookname"] as? String }
-        set(newStr) {super.params["bookname"] = newStr}
+        get {return super.params["bookName"] as? String }
+        set(newStr) {super.params["bookName"] = newStr}
     }
     
     var authorName:String?{
-        get {return super.params["authorname"] as? String }
-        set(newStr) {super.params["authorname"] = newStr}
+        get {return super.params["authorName"] as? String }
+        set(newStr) {super.params["authorName"] = newStr}
     }
     
     var edition:Int?{
-        get {return Int(super.params["edition"] as! String) }
-        set(newStr) {super.params["edition"] = String(newStr!)}
+//        get {return Int(super.params["edition"] as! String) }
+//        set(newStr) {super.params["edition"] = String(newStr!)}
+        get {return super.params["edition"] as? Int }
+        set(newInt) { super.params["edition"] = newInt }
     }
     
-    var BelongTo:BSUser?
+    var belongTo:BSUser?
     
     override init() {
         super.init(ParameterCapacity: 4)
@@ -31,10 +33,17 @@ class BSReqlist:BSObject {
     
     func upLoad(callback:(BSError?)->Void){
         //self.params["belongto"] = self.BelongTo?.objectId
-        self.params["belongto"] = "56d88c8f4af53c557f539179"
+        let urlStr = "\(BSGlobal.baseUrl)/RequestList/add"
+        self.params["belongTo"] = belongTo?.objectId!
         
-        self.save("http://127.0.0.1:8080/api/requestlist/add") { (data, response, error) -> Void in
-            let result:BSResult = BSUtil.jsonToBSResult(data)
+        self.save(urlStr) { (data, response, error) -> Void in
+            let _result:BSResult? = BSUtil.jsonToBSResult(data)
+            
+            guard let result = _result else {
+                callback(BSError(_errorStr: "Failed to parse json result:\(urlStr)"))
+                return
+            }
+            
             if !result.isError() {
                 callback(nil)
             }else {
@@ -43,31 +52,31 @@ class BSReqlist:BSObject {
         }
     }
     
-    static func search(str:String, callback:(BSError?, [BSObject]?)->Void){
-        let url = NSURL(string: "http://127.0.0.1:8080/api/search/request")
-        let request = NSMutableURLRequest(URL: url!)
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.HTTPMethod = "POST"
-        let searchStr = ["search":str]
-        var data:NSData?
-        
-        do {
-            data = try NSJSONSerialization.dataWithJSONObject(searchStr, options: .PrettyPrinted)
-        } catch let err {
-            debugPrint(err)
-        }
-        request.HTTPBody = data
-        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) { (data, response, error) -> Void in
-            print(String(data: data!, encoding: NSUTF8StringEncoding))
-            let result:BSResult! = BSUtil.jsonToBSResult(data)
-            if result.isError() {
-                callback(BSError(_errorStr: result.status), nil)
-            }else{
-                callback(BSError(_errorStr: result.status), result.results)
-            }
-            
-            
-        }
-        task.resume()
-    }
+//    static func search(str:String, callback:(BSError?, [BSObject]?)->Void){
+//        let url = NSURL(string: "http://127.0.0.1:8080/api/search/request")
+//        let request = NSMutableURLRequest(URL: url!)
+//        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+//        request.HTTPMethod = "POST"
+//        let searchStr = ["search":str]
+//        var data:NSData?
+//        
+//        do {
+//            data = try NSJSONSerialization.dataWithJSONObject(searchStr, options: .PrettyPrinted)
+//        } catch let err {
+//            debugPrint(err)
+//        }
+//        request.HTTPBody = data
+//        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) { (data, response, error) -> Void in
+//            print(String(data: data!, encoding: NSUTF8StringEncoding))
+//            let result:BSResult! = BSUtil.jsonToBSResult(data)
+//            if result.isError() {
+//                callback(BSError(_errorStr: result.status), nil)
+//            }else{
+//                callback(BSError(_errorStr: result.status), result.results)
+//            }
+//            
+//            
+//        }
+//        task.resume()
+//    }
 }

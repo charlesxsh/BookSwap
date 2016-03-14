@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BookSwap/SignUpViewController.swift"
-            timestampString = "479539551.004418"
+            timestampString = "479590024.957429"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "62"
-            endingLineNumber = "62"
+            startingLineNumber = "63"
+            endingLineNumber = "63"
             landmarkName = "signUpNewUser(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -58,11 +58,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BookSwap/BSUser.swift"
-            timestampString = "479541783.522208"
+            timestampString = "479589895.551002"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "72"
-            endingLineNumber = "72"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
             landmarkName = "signUp(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -138,11 +138,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BookSwap/BSUser.swift"
-            timestampString = "479541783.522208"
+            timestampString = "479589895.551002"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "77"
-            endingLineNumber = "77"
+            startingLineNumber = "62"
+            endingLineNumber = "62"
             landmarkName = "signUp(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -154,11 +154,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BookSwap/BSUser.swift"
-            timestampString = "479541783.522208"
+            timestampString = "479589895.551002"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "121"
-            endingLineNumber = "121"
+            startingLineNumber = "106"
+            endingLineNumber = "106"
             landmarkName = "signIn(Email:Password:callback:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -170,11 +170,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BookSwap/BSUser.swift"
-            timestampString = "479541783.522208"
+            timestampString = "479589895.551002"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "128"
-            endingLineNumber = "128"
+            startingLineNumber = "113"
+            endingLineNumber = "113"
             landmarkName = "signIn(Email:Password:callback:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -186,11 +186,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BookSwap/BSUser.swift"
-            timestampString = "479541783.522208"
+            timestampString = "479589895.551002"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "108"
-            endingLineNumber = "108"
+            startingLineNumber = "93"
+            endingLineNumber = "93"
             landmarkName = "signIn(Email:Password:callback:)"
             landmarkType = "5">
             <Locations>
@@ -234,11 +234,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BookSwap/BSUser.swift"
-            timestampString = "479541783.522208"
+            timestampString = "479589895.551002"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "120"
-            endingLineNumber = "120"
+            startingLineNumber = "105"
+            endingLineNumber = "105"
             landmarkName = "signIn(Email:Password:callback:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -250,11 +250,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BookSwap/BSUser.swift"
-            timestampString = "479541783.522208"
+            timestampString = "479589895.551002"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "130"
-            endingLineNumber = "130"
+            startingLineNumber = "115"
+            endingLineNumber = "115"
             landmarkName = "signIn(Email:Password:callback:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -266,11 +266,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BookSwap/BSUser.swift"
-            timestampString = "479541783.522208"
+            timestampString = "479589895.551002"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "128"
-            endingLineNumber = "128"
+            startingLineNumber = "113"
+            endingLineNumber = "113"
             landmarkName = "signIn(Email:Password:callback:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -298,11 +298,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BookSwap/SignUpViewController.swift"
-            timestampString = "479539546.635436"
+            timestampString = "479590024.957429"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "63"
-            endingLineNumber = "63"
+            startingLineNumber = "67"
+            endingLineNumber = "67"
             landmarkName = "signUpNewUser(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -314,11 +314,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BookSwap/BSUser.swift"
-            timestampString = "479541783.522208"
+            timestampString = "479589895.551002"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "126"
-            endingLineNumber = "126"
+            startingLineNumber = "111"
+            endingLineNumber = "111"
             landmarkName = "signIn(Email:Password:callback:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -330,11 +330,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BookSwap/BSUser.swift"
-            timestampString = "479541783.522208"
+            timestampString = "479589895.551002"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "127"
-            endingLineNumber = "127"
+            startingLineNumber = "112"
+            endingLineNumber = "112"
             landmarkName = "signIn(Email:Password:callback:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -362,13 +362,29 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BookSwap/BSUser.swift"
-            timestampString = "479541776.962152"
+            timestampString = "479589895.551002"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "33"
             endingLineNumber = "33"
             landmarkName = "BSUser"
             landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BookSwap/BookRequestViewController.swift"
+            timestampString = "479616362.785587"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "32"
+            endingLineNumber = "32"
+            landmarkName = "makeRequest(_:)"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

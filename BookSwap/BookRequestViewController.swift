@@ -28,17 +28,24 @@ class BookRequestViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func makeRequest(sender: AnyObject) {
         let bookrequest = BSReqlist()
-        bookrequest.BelongTo = BSGlobal.currentUser!
-        
+        bookrequest.belongTo = BSGlobal.currentUser!
         bookrequest.bookName = self.txfieldBookName.text!
         bookrequest.authorName = self.txfieldBookAuthor.text!
-        bookrequest.edition = Int(self.txfieldBookEdition.text!)
+        let edition = Int(self.txfieldBookEdition.text!)
+        guard edition != nil else {
+            debugPrint("Incorrect edition information")
+            return
+        }
+        bookrequest.edition = edition
         bookrequest.upLoad { (error) -> Void in
             guard error == nil else {
                 debugPrint(error)
                 return
             }
-            self.navigationController?.popViewControllerAnimated(true)
+            
+            dispatch_async(dispatch_get_main_queue()){
+                self.navigationController?.popViewControllerAnimated(true)
+            }
         }
     }
     

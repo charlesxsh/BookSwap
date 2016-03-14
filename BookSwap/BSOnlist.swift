@@ -22,57 +22,69 @@ import UIKit
 //    Swap:Boolean
 //});
 
-class BSOnlist:BSObject{
+public class BSOnlist:BSObject{
     
-    var bookName:String? {
-        get {return super.params["bookemail"] as? String }
-        set(newStr) {super.params["bookemail"] = newStr}
+    public var bookName:String? {
+        get {return super.params["bookName"] as? String }
+        set(newStr) {super.params["bookName"] = newStr}
     }
     
-    var authorName:String?{
-        get {return super.params["authorname"] as? String }
-        set(newStr) {super.params["authorname"] = newStr}
+    public var authorName:String?{
+        get {return super.params["authorName"] as? String }
+        set(newStr) {super.params["authorName"] = newStr}
     }
     
-    var edition:Int?{
-        get {return Int(super.params["edition"] as! String) }
-        set(newStr) {super.params["edition"] = String(newStr)}
+    public var edition:Int?{
+        get { return super.params["edition"] as? Int }
+        set(newVal) { super.params["edition"] = newVal }
     }
     
-    var coverImg:UIImage?{
-        get {return UIImage(data: super.params["coverimage"]! as! NSData) }
-        set(img) {super.params["coverimage"] = UIImagePNGRepresentation(img!)}
+    public var coverImg:UIImage? {
+        get{ return UIImage(data:NSData(base64EncodedString: super.params["coverImg"] as! String, options:[])!) }
+        set(img) {
+            let imgdata = UIImagePNGRepresentation(img!)!
+            let imgstr = imgdata.base64EncodedStringWithOptions([])
+            super.params["coverImg"] = imgstr
+        }
     }
     
-    var sellPrice:Float?{
-        get {return Float(super.params["sellprice"] as! String) }
-        set(newStr) {super.params["sellprice"] = String(newStr)}
+    public var sellPrice:Float?{
+        get {return super.params["sellPrice"] as? Float }
+        set(newVal) {super.params["sellPrice"] = newVal }
     }
 
-    var rentPrice:Float?{
-        get {return Float(super.params["rentprice"] as! String) }
-        set(newStr) {super.params["rentprice"] = String(newStr)}
+    public var rentPrice:Float?{
+        get {return super.params["rentPrice"] as? Float }
+        set(newVal) {super.params["rentPrice"] = newVal }
     }
 
-    var ifSwap:Bool?{
-        get {return ((super.params["ifswap"] as! String) == "true") }
-        set(newStr) {super.params["ifSwap"] = (String(newStr) == "true" ? true:false)}
+    public var swap:Bool?{
+        get {return super.params["swap"] as? Bool }
+        set(newVal) {super.params["swap"] = newVal }
     }
 
-    var BelongTo:BSUser? 
+    public var belongTo:BSUser?
     
     override init() {
         super.init(ParameterCapacity: 8)
     }
     
     func upLoad(callback:(BSError?)->Void){
-        self.params["belongto"] = self.BelongTo?.objectId
-        self.save("") { (data, response, error) -> Void in
-            let result:BSResult = BSUtil.jsonToBSResult(data)
-            if !result.isError() {
-                callback(nil)
+        let urlStr = "\(BSGlobal.baseUrl)/OnList/add"
+        self.params["belongTo"] = self.belongTo?.objectId
+        self.save(urlStr) { (data, response, error) -> Void in
+            guard data != nil else {
+                callback(BSError(_errorStr: "nil data return for \(urlStr)"))
+                return
+            }
+            let result:BSDictRef = BSUtil.jsonToDictionary(data)!
+            let status = result["status"] as! String
+            if status != "OK" {
+                callback(BSError(_errorStr: status))
             }else {
-                callback(BSError(_errorStr: result.status))
+                let objId = result["id"] as! String
+                self.objectId = objId
+                callback(nil)
             }
         }
         

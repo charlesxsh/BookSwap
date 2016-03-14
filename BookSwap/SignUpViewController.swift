@@ -60,6 +60,10 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UIImagePicker
         user.profie = img
         print(user.profie)
         user.signUp { (error, user) -> Void in
+            guard error == nil else {
+                debugPrint(error)
+                return
+            }
             self.logindelegate?.loginIn(user!.email!, passwd: user!.password!)
             self.dismissViewControllerAnimated(true, completion: nil)
         }

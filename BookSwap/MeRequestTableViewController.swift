@@ -12,17 +12,25 @@ class MeRequestTableViewController: UITableViewController {
     
     var cellData:[BSObject] = [BSObject]()
     var currentUser:BSUser?
+    let query = BSQuery(collectionName: "RequestList")
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.registerNib(UINib(nibName: "TVCellForRequestBook", bundle: nil), forCellReuseIdentifier: "bookcell")
+        self.refreshControl?.addTarget(self, action: "refreshing:", forControlEvents: UIControlEvents.ValueChanged)
         //belongto equal currentUser
-        BSReqlist.search("") { (error, dicts) -> Void in
-            guard let dicts = dicts else {return}
-            for dict in dicts {
-                self.cellData.append(dict)
+        query.whereKey("belongTo", equalTo: self.currentUser!.objectId!)
+        query.query { (error, objects) -> Void in
+            guard error == nil else {
+                debugPrint(error)
+                return
+            }
+            guard let objects = objects else {return}
+            for object in objects {
+                self.cellData.append(object)
             }
             self.tableView.reloadData()
+            
         }
 
         self.tableView.rowHeight = UITableViewAutomaticDimension
@@ -44,10 +52,29 @@ class MeRequestTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("bookcell", forIndexPath: indexPath) as! TVCellForRequestBook
-        cell.setBookName(cellData[indexPath.row]["BookName"] as! String)
-        cell.setBookEdition(cellData[indexPath.row]["Edition"] as! Int)
-        cell.setBookAuthor(cellData[indexPath.row]["Author"] as! String)
+        let tempReq:BSObject = cellData[indexPath.row]
+        cell.setBookName(tempReq["bookName"] as! String)
+        cell.setBookEdition(tempReq["edition"] as! Int)
+        cell.setBookAuthor(tempReq["authorName"] as! String)
         return cell
+    }
+    
+    func refreshing(sender:AnyObject)
+    {
+        self.cellData.removeAll(keepCapacity: true)
+        query.query { (error, objects) -> Void in
+            guard error == nil else {
+                debugPrint(error)
+                return
+            }
+            guard let objects = objects else {return}
+            for object in objects {
+                self.cellData.append(object)
+            }
+            self.tableView.reloadData()
+        }
+        self.refreshControl?.endRefreshing()
+        // Code to refresh table view
     }
 
 }

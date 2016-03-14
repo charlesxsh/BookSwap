@@ -63,13 +63,23 @@ class BookUploadViewController: UIViewController, UIImagePickerControllerDelegat
         let alert = UIAlertController(title: "Choose from", message: nil, preferredStyle: .ActionSheet)
         alert.addAction(UIAlertAction(title: "Take Photo", style: .Default, handler: { (UIAlertAction) -> Void in
             alert.dismissViewControllerAnimated(true, completion:nil)
-            self.imgPickerController.sourceType = .Camera
-            self.presentViewController(self.imgPickerController, animated: true, completion: nil)
+            //check avaliable
+            if UIImagePickerController.isSourceTypeAvailable(.Camera) {
+                self.imgPickerController.sourceType = .Camera
+                self.presentViewController(self.imgPickerController, animated: true, completion: nil)
+            } else {
+                debugPrint("Camera is not avaliable on this device")
+            }
         }))
         alert.addAction(UIAlertAction(title: "Library", style: .Default, handler: { (UIAlertAction) -> Void in
             alert.dismissViewControllerAnimated(true, completion: nil)
-            self.imgPickerController.sourceType = .PhotoLibrary
-            self.presentViewController(self.imgPickerController, animated: true, completion: nil)
+            //check avaliable
+            if UIImagePickerController.isSourceTypeAvailable(.PhotoLibrary) {
+                self.imgPickerController.sourceType = .PhotoLibrary
+                self.presentViewController(self.imgPickerController, animated: true, completion: nil)
+            } else {
+                debugPrint("PhotoLibrary is not avaliable on this device")
+            }
         }))
         alert.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: { (UIAlertAction) -> Void in
             alert.dismissViewControllerAnimated(true, completion: nil)
@@ -167,23 +177,30 @@ class BookUploadViewController: UIViewController, UIImagePickerControllerDelegat
     }
     
     @IBAction func postABook(sender: AnyObject) {
-        
         if !BSGlobal.isLogin() {
+            return
+        }
+        guard let image = self.ImageViewBook.image,
+              let bookName = self.TFBookName.text,
+              let authorName = self.TFAuthor.text,
+              let edition = Int(self.TFEdition.text!)
+            else {
             return
         }
         let book = BSOnlist()
         //let book = PFObject(className: "Book")
-        book.bookName = self.TFBookName.text!
-        book.authorName = self.TFAuthor.text!
-        book.edition = Int(self.TFEdition.text!)!
-        let afterScareImg = UIImage.resizeImage(self.ImageViewBook.image!, newWidth: 500)
+        book.bookName = bookName
+        book.authorName = authorName
+        book.edition = edition
+        let afterScareImg = UIImage.resizeImage(image, newWidth: 400)
         book.coverImg = afterScareImg
         book.sellPrice = self.sPrice
         book.rentPrice = self.rPrice
-        book.ifSwap = self.isSwap
-        book.BelongTo = BSGlobal.currentUser!
+        book.swap = self.isSwap
+        book.belongTo = BSGlobal.currentUser!
         book.upLoad { (error) -> Void in
             guard error != nil else {
+                debugPrint(error)
                 return
             }
             self.dismissViewControllerAnimated(true, completion: nil)

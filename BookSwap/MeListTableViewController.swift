@@ -46,7 +46,7 @@ class MeListTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("bookcell", forIndexPath: indexPath) as! TVCellForBooks
-        cell.setbookNameForCell(cellData[indexPath.row]["BookName"] as! String)
+        cell.setbookNameForCell(cellData[indexPath.row]["bookName"] as! String)
         cell.setbookOwnerForCell("Myself")
         let imgFile = cellData[indexPath.row]["coverImg"] as! NSData
         cell.setBookImageForCell(UIImage(data: imgFile)!)

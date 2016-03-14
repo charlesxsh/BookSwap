@@ -48,12 +48,8 @@ class MeTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         switch(Data[indexPath.section]![indexPath.row]){
-            case "Me":
+        case "Me":
                 let cell:TVCellForMe = tableView.dequeueReusableCellWithIdentifier("mecell", forIndexPath: indexPath) as! TVCellForMe
-//                let img = self.currentUser!["profie"] as! PFFile
-//                img.getDataInBackgroundWithBlock({ (data, error) -> Void in
-//                    cell.setProfie(UIImage(data: data!)!)
-//                })
                 cell.setProfie(self.currentUser!.profie!)
                 cell.setDisplayName(self.currentUser!.displayName!)
                 return cell
